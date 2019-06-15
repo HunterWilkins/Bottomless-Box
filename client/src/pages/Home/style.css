@@ -1,0 +1,51 @@
+* {
+	box-sizing:border-box;
+}
+
+body {
+    color:rgb(253, 214, 198);
+    background: rgb(32, 28, 28);
+    font-size:20px;
+}
+
+button {
+    cursor:pointer;
+}
+
+#dashboard {
+    padding:15px;
+    background:rgb(47, 36, 36);
+}
+
+#inventory {
+    position:fixed;
+    top:133px;
+    bottom:0px;
+    left:0;
+    right:75px;
+    padding:10px;
+    background:rgb(41, 29, 29);
+}
+
+#inv-buttons {
+    position:absolute;
+    bottom:0;
+    right:-70px;
+    width:70px;
+}
+
+#inv-buttons button {
+    width:70px;
+    height:70px;
+    margin-bottom:5px;
+    border:none;
+    padding:none;
+    border-radius:4px;
+
+    background:rgb(103, 73, 64);
+    color:inherit;
+}
+
+.symbol-btn {
+    font-size:30px;
+}

@@ -1,0 +1,23 @@
+.item {
+    min-height:1em;
+    background:rgb(22, 14, 17);
+    margin-bottom:5px;
+}
+
+.item p {
+    display:inline-block;
+    padding:10px;
+}
+
+.item-name {
+    width:50%;
+}
+
+.item-value {
+    width:25%;
+
+}
+
+.item-qty {
+    width:25%;
+}

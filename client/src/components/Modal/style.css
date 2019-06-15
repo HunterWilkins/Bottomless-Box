@@ -1,0 +1,90 @@
+#backdrop {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    min-height:100vh;
+    background:rgba(23, 15, 14, .75);
+    z-index:9;
+}
+
+#modal {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    max-width:500px;
+    min-width:300px;
+    max-height:500px;
+    min-height:350px;
+
+    padding:15px;
+    text-align:center;
+    background:linear-gradient(rgb(103, 73, 64), rgb(76, 51, 46));
+    box-shadow:0 10px 15px rgb(15, 7, 6);
+
+    z-index:10;
+}
+
+#modal button{
+    border-top:rgb(152, 118, 98) solid 2px;
+    border-left:rgb(152, 118, 98) solid 2px;
+    border-bottom:rgb(34, 18, 15) solid 2px;
+    border-right:rgb(34, 18, 15) solid 2px;
+    background:rgb(45, 32, 30);
+    color:rgb(216, 180, 152);
+}
+
+#modal input {
+    padding:15px;
+    margin-bottom:10px;
+    font-size:20px;
+    background:rgb(47, 33, 30);
+    border-top:rgb(34, 18, 15) solid 2px;
+    border-bottom:rgb(125, 78, 60) solid 2px;
+    border-right:rgb(47, 29, 22) solid 2px;
+    border-left:rgb(47, 29, 22) solid 2px;
+    color:rgb(253, 214, 198);
+
+}
+
+#modal-name, #modal-value {
+    width:100%;
+}
+
+#modal-qty {
+    width:50%;
+}
+
+#modal-submit{
+    font-size:20px;
+    width:80%;
+    margin:0 auto;
+    padding:15px;
+}
+
+#modal-close {
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:50px;
+    height:50px;
+    font-size:20px;
+
+}
+
+#modal-trash {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:50px;
+    height:50px;
+    font-size:30px;
+}
+
+.qty-editor {
+    margin:0 5px;
+    font-size:20px;
+    height:50px;
+    width:50px;
+}
