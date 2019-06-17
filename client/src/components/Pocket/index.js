@@ -5,16 +5,19 @@ function Pocket(props) {
 
     if (props.func === "add") {
         return(
-            <div className = "pocket" onClick = {props.toggleModal}>
+            <div className = "pocket" onClick = {() => {props.toggleModal("pocket", null)}}>
                 <h1>+</h1>
             </div>
         )
     }
-    return (
-        <div className = "pocket">
-            <h1>This is a pocket.</h1>
-        </div>
-    );
+    else {
+        return (
+            <div className = "pocket">
+                <img src = {"/images/" + props.name + ".png"} alt = "food"></img>
+                <p>{props.name}</p>
+            </div>
+        );
+        }
 }
 
 export default Pocket;

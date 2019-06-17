@@ -6,9 +6,10 @@
     box-shadow:0 5px 5px rgb(30, 17, 15);
     background:rgb(103, 73, 64);
     border-radius:5px;
-    padding:5px;
     text-align:center;
     position:relative;
+    overflow:hidden;
+    margin:5px;
 }
 
 .pocket h1{
@@ -17,4 +18,15 @@
     left:50%;
     transform:translate(-50%, -50%);
     font-size:50px;
+}
+
+.pocket p{
+    position:absolute;
+    z-index:5;
+    bottom:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:100%;
+
+    background:rgba(30, 17, 15, .75);
 }
