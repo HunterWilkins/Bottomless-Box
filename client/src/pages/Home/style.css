@@ -25,14 +25,7 @@ button {
     cursor:pointer;
 }
 
-#dashboard {
-    position:relative;
-    padding:15px;
-    background:rgb(47, 36, 36);
-    overflow-x: scroll;
-    white-space:nowrap;
-    height:150px;
-}
+
 
 #inventory {
     position:fixed;
