@@ -3,6 +3,10 @@ import "./style.css";
 
 function Pocket(props) {
 
+    let styles = {
+        display: "inline-block"
+    }
+
     if (props.func === "add") {
         return(
             <div className = "pocket" onClick = {() => {props.toggleModal("pocket", null)}}>
@@ -22,7 +26,7 @@ function Pocket(props) {
 
     else {
         return (
-            <div className = "pocket" onClick = {() => {props.toggleInv(props.name)}}>
+            <div className = "pocket" style = {styles} onClick = {() => {props.toggleInv(props.name)}}>
                 <img src = {"/images/" + props.name + ".png"} alt = {props.name}></img>
             </div>
         );

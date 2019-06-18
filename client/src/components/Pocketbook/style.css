@@ -2,8 +2,7 @@
     padding:15px;
     background:rgb(47, 36, 36);
     overflow-x: scroll;
+    overflow-y:hidden;
     white-space:nowrap;
     height:150px;
-    display:flexbox;
-    flex-direction:row;
 }
