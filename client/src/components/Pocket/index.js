@@ -10,14 +10,24 @@ function Pocket(props) {
             </div>
         )
     }
-    else {
+
+    else if (props.func === "modal") {
         return (
-            <div className = "pocket">
+            <div className = "pocket" onClick = {() => {props.makePocket(props.name)}}>
                 <img src = {"/images/" + props.name + ".png"} alt = "food"></img>
                 <p>{props.name}</p>
             </div>
         );
-        }
+    }
+
+    else {
+        return (
+            <div className = "pocket" onClick = {() => {props.toggleInv(props.name)}}>
+                <img src = {"/images/" + props.name + ".png"} alt = {props.name}></img>
+            </div>
+        );
+    }
+
 }
 
 export default Pocket;

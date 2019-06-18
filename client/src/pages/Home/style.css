@@ -8,6 +8,19 @@ body {
     font-size:20px;
 }
 
+::-webkit-scrollbar{
+    height:4px;
+    width:4px;
+}
+
+::-webkit-scrollbar-track{
+    background:rgb(32, 28, 28);
+}
+
+::-webkit-scrollbar-thumb{
+    background:rgb(103, 73, 64);
+}
+
 button {
     cursor:pointer;
 }
@@ -15,11 +28,13 @@ button {
 #dashboard {
     padding:15px;
     background:rgb(47, 36, 36);
+    overflow-x: scroll;
+    white-space:nowrap;
 }
 
 #inventory {
     position:fixed;
-    top:133px;
+    top:147px;
     bottom:0px;
     left:0;
     right:75px;

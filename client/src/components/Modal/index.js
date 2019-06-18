@@ -9,11 +9,11 @@ function Modal(props) {
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
                 
             <div id = "modal">
-                <Pocket name = "Food" />
-                <Pocket name = "Fruit" />
-                <Pocket name = "Vegetables" />
-                <Pocket name = "Junk Food" />
-                <Pocket name = "Medicine" />
+                <Pocket func = "modal" name = "Food" makePocket = {props.makePocket}/>
+                <Pocket func = "modal" name = "Fruit"  makePocket = {props.makePocket}/>
+                <Pocket func = "modal" name = "Vegetables" makePocket = {props.makePocket} />
+                <Pocket func = "modal" name = "Junk Food" makePocket = {props.makePocket} />
+                <Pocket func = "modal" name = "Medicine" makePocket = {props.makePocket} />
                 <button id = "modal-close" onClick = {() => {props.toggleModal("pocket", null)}}>X</button>
             </div>
             </div>
@@ -39,7 +39,7 @@ function Modal(props) {
         );
     }
 
-    else {
+    else if (props.type === "inventory") {
         return (
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
                 
@@ -50,12 +50,17 @@ function Modal(props) {
                 <button className = "qty-editor">+</button>
                 <button className = "qty-editor">-</button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
-                <button id = "modal-close" onClick = {props.toggleModal}>X</button>
+                <button id = "modal-close" onClick = {() => {props.toggleModal("inventory")}}>X</button>
                 <button id = "modal-trash" onClick = {props.delete}>🗑</button>
                 
             </div>
             </div>
         );
+    }
+    else {
+        return(
+            <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}} />
+        )
     }
     
 }

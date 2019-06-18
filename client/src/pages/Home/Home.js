@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import "./style.css";
 
 import Pocket from "../../components/Pocket";
-import Item from "../../components/Item";
 import Modal from "../../components/Modal";
+import Inventory from "../../components/Inventory";
 
 class Home extends Component {
     state = {
@@ -13,12 +13,17 @@ class Home extends Component {
         itemVal: "",
         itemQty: "",
         itemId: "",
+        itemType: "",
+
+        invScreen: "All"
     }
 
     inventory = [];
+    pockets = [];
 
     updateStorage = () => {
         localStorage.setItem("inventory", JSON.stringify(this.inventory));
+        localStorage.setItem("pockets", JSON.stringify(this.pockets));
     }
     
     componentWillMount = () => {
@@ -28,9 +33,18 @@ class Home extends Component {
                 this.inventory.push(item);
             });
         }
+
+        let localPockets = JSON.parse(localStorage.getItem("pockets"));
+        if (localPockets) {
+            localPockets.forEach(item => {
+                this.pockets.push(item);
+            });
+        }
     }
-    
-    toggleModal = (type, infoObject ) => {
+
+
+    toggleModal = (type, infoObject, pocket ) => {
+        console.log("Modal Type: " + type);
         this.setState({modal:!this.state.modal});
 
         if (type === "pocket"){
@@ -48,6 +62,18 @@ class Home extends Component {
                 itemId: infoObject.id
             })
         }
+
+        else if (type === "inventory") {
+            this.setState({
+                modalType: "inventory"
+            })
+        }
+    }
+
+    toggleInv = (pocketName) => {
+        this.setState({
+            invScreen: pocketName
+        });
     }
     
     handleInputChange = event => {
@@ -73,6 +99,7 @@ class Home extends Component {
                 name: this.state.itemName,
                 value: this.state.itemVal,
                 quantity: this.state.itemQty,
+                type: this.state.invScreen,
                 id: this.inventory.length
             }
             
@@ -83,7 +110,40 @@ class Home extends Component {
         else {
             this.update(this.state.itemId);
         }
+
+        this.filteredInv = this.inventory.filter(item => item.type === this.state.invScreen);
+
         
+        console.log(this.inventory);
+        console.log(this.filteredInv);
+    }
+
+    makePocket = (newItemType) => {
+        console.log(newItemType);
+        if (this.pockets.indexOf(newItemType) === -1) {
+            this.pockets.push(newItemType);
+        }
+        this.updateStorage();
+        this.toggleInv();
+        this.toggleModal("inventory");
+    }
+
+    deletePocket = () => {
+        let deletedPocketIndex = this.pockets.indexOf(this.state.invScreen);
+        this.pockets.splice(deletedPocketIndex,1);
+        this.inventory.forEach(item => {
+            if (item.type === this.state.invScreen) {
+                let deletionIndex = this.inventory.indexOf(item);
+                console.log(this.inventory[deletionIndex]);
+
+                this.inventory.splice(this.inventory[deletionIndex]);
+                this.updateStorage();
+            }
+        })
+        this.updateStorage();
+        console.log(this.inventory);
+        console.log(deletedPocketIndex);
+        console.log(this.pockets);
     }
 
     update = (id) => {
@@ -127,35 +187,32 @@ class Home extends Component {
                     create = {this.create}
                     delete = {this.delete}
 
+                    makePocket = {this.makePocket}
+
                     type = {this.state.modalType}
                 />
 
                 <div id = "dashboard">
                 
                     <Pocket func = "add" toggleModal = {this.toggleModal} modalType = {this.state.modalType}/>
-                    
-                </div>
 
-                <div id = "inventory">
-                    <h1>Inventory</h1>
-                    <Item toggleModal = {this.toggleModal} name = "Name" value = "$" qty = "#"/>
-                    {this.inventory.map(item =>{
+                    {this.pockets.map(item =>{
                         return(
-                            <Item toggleModal = {this.toggleModal}
-                                name = {item.name}
-                                value = {item.value}
-                                qty = {item.quantity}
-                                id = {item.id}
+                            <Pocket 
+                                name = {item}
+                                toggleInv = {this.toggleInv}
                             />
                         );
                     })}
-                    <div id = "inv-buttons">
-                        <button>Trash</button>
-                        <button className = "symbol-btn"  onClick = {() => {this.toggleModal("smash")}}>+</button>
-                        <button className = "symbol-btn">x</button>
-                    </div>
-                </div>     
-            
+                    
+                </div>
+
+                <Inventory 
+                    inventory = {this.inventory} 
+                    invScreen = {this.state.invScreen} 
+                    toggleModal = {this.toggleModal}
+                    deletePocket = {this.deletePocket}
+                />
             </div>
         )
     }
