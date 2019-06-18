@@ -7,11 +7,3 @@
     height:150px;
     position:relative;
 }
-
-#dashboard > * {
-    display:inline-block;
-    margin:5px;
-    position:relative;
-    top:50%;
-    transform:translateY(-50%);
-}
