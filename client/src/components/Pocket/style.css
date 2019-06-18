@@ -9,8 +9,9 @@
     text-align:center;
     position:relative;
     overflow:hidden;
-    margin-right:5px;
-    vertical-align:middle;
+    margin:5px;
+    transform:translateY(-50%);
+    top:50%;
 }
 
 .pocket h1{
