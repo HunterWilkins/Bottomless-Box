@@ -26,15 +26,22 @@ button {
 }
 
 #dashboard {
+    position:relative;
     padding:15px;
     background:rgb(47, 36, 36);
     overflow-x: scroll;
     white-space:nowrap;
+    height:150px;
+}
+
+#dashboard > * {
+    
+
 }
 
 #inventory {
     position:fixed;
-    top:147px;
+    top:154px;
     bottom:0px;
     left:0;
     right:75px;
