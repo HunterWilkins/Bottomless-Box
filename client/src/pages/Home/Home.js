@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./style.css";
 
 import Pocket from "../../components/Pocket";
+import Pocketbook from "../../components/Pocketbook";
 import Modal from "../../components/Modal";
 import Inventory from "../../components/Inventory";
 
@@ -141,9 +142,9 @@ class Home extends Component {
             }
         })
         this.updateStorage();
-        console.log(this.inventory);
-        console.log(deletedPocketIndex);
-        console.log(this.pockets);
+        this.setState({
+            invScreen: "All"
+        })
     }
 
     update = (id) => {
@@ -192,20 +193,14 @@ class Home extends Component {
                     type = {this.state.modalType}
                 />
 
-                <div id = "dashboard">
                 
-                    <Pocket func = "add" toggleModal = {this.toggleModal} modalType = {this.state.modalType}/>
-
-                    {this.pockets.map(item =>{
-                        return(
-                            <Pocket 
-                                name = {item}
-                                toggleInv = {this.toggleInv}
-                            />
-                        );
-                    })}
-                    
-                </div>
+                
+                <Pocketbook 
+                pockets = {this.pockets} 
+                toggleModal = {this.toggleModal}
+                toggleInv = {this.toggleInv}
+                />
+                
 
                 <Inventory 
                     inventory = {this.inventory} 
