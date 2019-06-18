@@ -28,7 +28,7 @@ button {
 
 
 #inventory {
-    position:fixed;
+    position:absolute;
     top:154px;
     bottom:0px;
     left:0;
