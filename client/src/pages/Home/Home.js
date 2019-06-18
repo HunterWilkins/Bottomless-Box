@@ -124,8 +124,8 @@ class Home extends Component {
             this.pockets.push(newItemType);
         }
         this.updateStorage();
-        this.toggleInv();
         this.toggleModal("inventory");
+        this.toggleInv(newItemType);
     }
 
     deletePocket = () => {
