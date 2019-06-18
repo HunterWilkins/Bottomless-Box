@@ -10,6 +10,7 @@
     position:relative;
     overflow:hidden;
     margin-right:5px;
+    vertical-align:middle;
 }
 
 .pocket h1{
