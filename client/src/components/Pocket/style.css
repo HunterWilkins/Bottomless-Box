@@ -2,15 +2,11 @@
     cursor:pointer;
     width:100px;
     height:100px;
-    display:inline-block;
     box-shadow:0 5px 5px rgb(30, 17, 15);
     background:rgb(103, 73, 64);
     border-radius:5px;
     text-align:center;
-    position:relative;
     overflow:hidden;
-    margin:5px;
-    
 }
 
 .pocket h1{
