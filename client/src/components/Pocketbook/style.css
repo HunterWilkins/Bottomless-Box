@@ -10,5 +10,7 @@
 #dashboard > * {
     display:inline-block;
     margin:5px;
-    position:relative;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
 }
