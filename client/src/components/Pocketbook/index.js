@@ -15,7 +15,7 @@ function Pocketbook(props) {
     })
 
     return (
-        <div>
+        <div id = "dashboard">
         <Pocket func = "add" toggleModal = {props.toggleModal} modalType = {props.modalType}/>
         {
             availablePockets
