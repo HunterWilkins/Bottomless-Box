@@ -5,6 +5,7 @@
     overflow-y:hidden;
     white-space:nowrap;
     height:150px;
+    width:100%;
     position:relative;
 }
 
