@@ -6,6 +6,12 @@ body {
     color:rgb(253, 214, 198);
     background: rgb(32, 28, 28);
     font-size:20px;
+    overflow:hidden;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
 }
 
 ::-webkit-scrollbar{
