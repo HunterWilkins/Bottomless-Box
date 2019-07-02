@@ -27,7 +27,7 @@ function Pocket(props) {
     else {
         return (
             <div className = "pocket" style = {styles} onClick = {() => {props.toggleInv(props.name)}}>
-                <img src = {"/images/" + props.name + ".png"} alt = {props.name}></img>
+                {/* <img src = {"/images/" + props.name + ".png"} alt = {props.name}></img> */}
             </div>
         );
     }
