@@ -9,8 +9,6 @@
 }
 
 #dashboard > * {
-    display:inline-block;
-    margin:5px;
-    position:relative;
+    float:left;
 }
 
