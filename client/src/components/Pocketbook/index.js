@@ -7,8 +7,8 @@ function Pocketbook(props) {
 
     return (
         <div id = "dashboard">
-        <Pocket func = "add" toggleModal = {props.toggleModal} modalType = {props.modalType}/>
-        <div id = "problem-pockets">
+            <Pocket func = "add" toggleModal = {props.toggleModal} modalType = {props.modalType}/>
+        
         <Pocket name = "All" toggleInv = {props.toggleInv} modalType = {props.modalType}/>
         {
             props.pockets.map(item => {
@@ -20,7 +20,6 @@ function Pocketbook(props) {
                 )
             })
         }
-        </div>
         </div>
     );
 }
