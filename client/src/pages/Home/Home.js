@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import "./style.css";
 
-import Pocket from "../../components/Pocket";
 import Pocketbook from "../../components/Pocketbook";
 import Modal from "../../components/Modal";
 import Inventory from "../../components/Inventory";
@@ -45,7 +44,6 @@ class Home extends Component {
 
 
     toggleModal = (type, infoObject, pocket ) => {
-        console.log("Modal Type: " + type);
         this.setState({modal:!this.state.modal});
 
         if (type === "pocket"){
@@ -55,13 +53,16 @@ class Home extends Component {
                 }
             );
         }
+
         else if (type === "item") {
             this.setState({
                 itemName: infoObject.name,
-                itemVal: infoObject.val,
-                itemQty: infoObject.qty,
-                itemId: infoObject.id
-            })
+                itemVal: infoObject.value,
+                itemQty: infoObject.quantity,
+                itemId: infoObject.id,
+                modalType:"item"
+            });
+            console.log(infoObject);
         }
 
         else if (type === "inventory") {
@@ -69,6 +70,8 @@ class Home extends Component {
                 modalType: "inventory"
             })
         }
+        console.log(this.state);
+
     }
 
     toggleInv = (pocketName) => {
@@ -104,7 +107,6 @@ class Home extends Component {
                 id: this.inventory.length
             }
             
-
             this.inventory.push(newItem);
             this.updateStorage();
         }
@@ -113,14 +115,9 @@ class Home extends Component {
         }
 
         this.filteredInv = this.inventory.filter(item => item.type === this.state.invScreen);
-
-        
-        console.log(this.inventory);
-        console.log(this.filteredInv);
     }
 
     makePocket = (newItemType) => {
-        console.log(newItemType);
         if (this.pockets.indexOf(newItemType) === -1) {
             this.pockets.push(newItemType);
         }
@@ -135,8 +132,6 @@ class Home extends Component {
         this.inventory.forEach(item => {
             if (item.type === this.state.invScreen) {
                 let deletionIndex = this.inventory.indexOf(item);
-                console.log(this.inventory[deletionIndex]);
-
                 this.inventory.splice(this.inventory[deletionIndex]);
                 this.updateStorage();
             }

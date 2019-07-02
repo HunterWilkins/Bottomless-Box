@@ -1,5 +1,5 @@
 import React from "react";
-// import "./style.css";
+import "./style.css";
 import Item from "../Item";
 
 function Inventory(props) {
@@ -16,23 +16,25 @@ function Inventory(props) {
     <div id = "inventory">
         <h1>{props.invScreen}</h1>
     
-        <Item toggleModal = {props.toggleModal} name = "Name" value = "$" qty = "#"/>
-        {filteredInv.map(item =>{
-            return(
-                <Item toggleModal = {props.toggleModal}
-                    name = {item.name}
-                    value = {item.value}
-                    qty = {item.quantity}
-                    id = {item.id}
-                    type = {item.type}
-                />
-            );
-        })}
-    
+        <Item toggleModal = {props.toggleModal} type = "legend" name = "Name" value = "$" qty = "#"/>
+        <div id = "items">
+            {filteredInv.map(item =>{
+                return(
+                    <Item toggleModal = {() => {props.toggleModal("item", item)}}
+                        name = {item.name}
+                        value = {item.value}
+                        qty = {item.quantity}
+                        id = {item.id}
+                        type = {item.type}
+                    />
+                );
+            })}
+        </div>
+        
         <div id = "inv-buttons">
             <button onClick = {() => {props.deletePocket()}}>Trash</button>
-            <button className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory")}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>+</button>
-            <button className = "symbol-btn">x</button>
+            <button className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>+</button>
+            {/* <button className = "symbol-btn">x</button> */}
         </div>
     
     </div>     

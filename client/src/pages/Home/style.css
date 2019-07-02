@@ -14,7 +14,7 @@ body {
 }
 
 ::-webkit-scrollbar-track{
-    background:rgb(32, 28, 28);
+    background: inherit;
 }
 
 ::-webkit-scrollbar-thumb{

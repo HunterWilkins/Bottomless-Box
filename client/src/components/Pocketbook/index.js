@@ -5,20 +5,19 @@ import Pocket from "../Pocket";
 
 function Pocketbook(props) {
 
-    let availablePockets = props.pockets.map(item =>{
-        return(
-            <Pocket 
-                name = {item}
-                toggleInv = {props.toggleInv}
-            />
-        );
-    })
-
     return (
         <div id = "dashboard">
         <Pocket func = "add" toggleModal = {props.toggleModal} modalType = {props.modalType}/>
+        <Pocket name = "All" toggleInv = {props.toggleInv} />
         {
-            availablePockets
+            props.pockets.map(item => {
+                return(
+                    <Pocket
+                    name = {item}
+                    toggleInv = {props.toggleInv}
+                    />
+                )
+            })
         }
         </div>
     );

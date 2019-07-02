@@ -1,0 +1,9 @@
+#items {
+    position:absolute;
+    left:10px;
+    right:5px;
+    top:80px;
+    bottom:0px;
+    
+    overflow-y: scroll;
+}

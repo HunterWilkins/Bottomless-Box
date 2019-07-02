@@ -4,7 +4,12 @@
     margin-bottom:5px;
 }
 
-.item p {
+.item-legend {
+    background:inherit;
+    font-style:italic;
+}
+
+.item p, .item-legend p {
     display:inline-block;
     padding:10px;
 }
