@@ -4,7 +4,7 @@ import "./style.css";
 function Pocket(props) {
 
     let styles = {
-        display: "inline-block"
+        background: "url(/images/"+props.name + ".png)"
     }
 
     if (props.func === "add") {
