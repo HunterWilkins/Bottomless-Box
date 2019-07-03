@@ -4,7 +4,7 @@ import "./style.css";
 function Pocket(props) {
 
     let styles = {
-        background: "url(/images/"+props.name + ".png)"
+        background: "url('/images/" + props.name + ".png')"
     }
 
     if (props.func === "add") {
