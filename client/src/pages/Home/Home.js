@@ -148,6 +148,9 @@ class Home extends Component {
             this.inventory = [];
             this.pockets = [];
             this.updateStorage();
+            this.setState({
+                invScreen: "All"
+            });
         }
 
     }
