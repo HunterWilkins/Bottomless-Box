@@ -127,19 +127,29 @@ class Home extends Component {
     }
 
     deletePocket = () => {
-        let deletedPocketIndex = this.pockets.indexOf(this.state.invScreen);
-        this.pockets.splice(deletedPocketIndex,1);
-        this.inventory.forEach(item => {
-            if (item.type === this.state.invScreen) {
-                let deletionIndex = this.inventory.indexOf(item);
-                this.inventory.splice(this.inventory[deletionIndex]);
-                this.updateStorage();
-            }
-        })
-        this.updateStorage();
-        this.setState({
-            invScreen: "All"
-        })
+
+        if (this.state.invScreen !== "All") {
+            let deletedPocketIndex = this.pockets.indexOf(this.state.invScreen);
+            this.pockets.splice(deletedPocketIndex,1);
+            this.inventory.forEach(item => {
+                if (item.type === this.state.invScreen) {
+                    let deletionIndex = this.inventory.indexOf(item);
+                    this.inventory.splice(this.inventory[deletionIndex]);
+                    this.updateStorage();
+                }
+            });
+            this.updateStorage();
+            this.setState({
+                invScreen: "All"
+            });
+        }
+
+        else {
+            this.inventory = [];
+            this.pockets = [];
+            this.updateStorage();
+        }
+
     }
 
     update = (id) => {
