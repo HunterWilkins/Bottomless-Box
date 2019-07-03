@@ -45,6 +45,7 @@ button {
 
 #inv-buttons {
     position:absolute;
+    top: 0;
     bottom:0;
     right:-70px;
     width:70px;
@@ -60,6 +61,11 @@ button {
 
     background:rgb(103, 73, 64);
     color:inherit;
+}
+
+#trash {
+    position: absolute;
+    top:0px;
 }
 
 .symbol-btn {
