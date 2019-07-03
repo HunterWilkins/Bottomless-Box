@@ -24,10 +24,17 @@ function Pocket(props) {
         );
     }
 
+    else if (props.name === "All") {
+        return (
+            <div className = "pocket" style = {styles} onClick = {() => {props.toggleInv(props.name)}}>
+                <h2>All</h2>
+            </div>
+        );
+    }
+
     else {
         return (
             <div className = "pocket" style = {styles} onClick = {() => {props.toggleInv(props.name)}}>
-                {/* <img src = {"/images/" + props.name + ".png"} alt = {props.name}></img> */}
             </div>
         );
     }
