@@ -62,12 +62,17 @@ class Home extends Component {
                 itemId: infoObject.id,
                 modalType:"item"
             });
+            console.log("Item Type Creation");
             console.log(infoObject);
         }
 
         else if (type === "inventory") {
             this.setState({
-                modalType: "inventory"
+                modalType: "inventory",
+                itemName: "",
+                itemVal: "",
+                itemQty: "",
+                itemId: ""
             })
         }
         console.log(this.state);

@@ -31,8 +31,6 @@ button {
     cursor:pointer;
 }
 
-
-
 #inventory {
     position:absolute;
     top:154px;
@@ -45,9 +43,9 @@ button {
 
 #inv-buttons {
     position:absolute;
-    top: 0;
+    top: 0px;
     bottom:0;
-    right:-70px;
+    right:-72px;
     width:70px;
 }
 
@@ -61,13 +59,24 @@ button {
 
     background:rgb(103, 73, 64);
     color:inherit;
+
+    position:absolute;
+}
+
+#add-btn {
+    bottom:0px;
+    font-size:30px;
 }
 
 #trash {
-    position: absolute;
     top:0px;
 }
 
-.symbol-btn {
+#info {
+    top:75px;
     font-size:30px;
 }
+/* 
+.symbol-btn {
+    font-size:30px;
+} */

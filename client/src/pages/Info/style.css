@@ -1,0 +1,25 @@
+#info-page-content {
+    padding:15px;
+    text-align:center;
+    overflow-y:scroll;
+    height:100vh;
+}
+
+h1 {
+    font-size:30px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+.info-desc {
+    margin: 15px auto;
+    max-width:500px;
+    min-width:300px;
+    line-height:1.5em;
+}
