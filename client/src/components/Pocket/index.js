@@ -17,8 +17,7 @@ function Pocket(props) {
 
     else if (props.func === "modal") {
         return (
-            <div className = "pocket" onClick = {() => {props.makePocket(props.name)}}>
-                <img src = {"/images/" + props.name + ".png"} alt = "food"></img>
+            <div className = "pocket" style = {styles} onClick = {() => {props.makePocket(props.name)}}>
                 <p>{props.name}</p>
             </div>
         );
