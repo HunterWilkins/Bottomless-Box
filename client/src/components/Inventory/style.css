@@ -9,3 +9,6 @@
     -webkit-overflow-scrolling:touch;
 }
 
+a {
+    color:inherit;
+}

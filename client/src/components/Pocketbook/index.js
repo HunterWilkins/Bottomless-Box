@@ -5,6 +5,10 @@ import Pocket from "../Pocket";
 
 function Pocketbook(props) {
 
+    let styles = {
+        border: "rgb(103, 90, 75) solid 2px"
+    }
+
     return (
         <div id = "dashboard">
             <Pocket func = "add" toggleModal = {props.toggleModal} modalType = {props.modalType}/>
@@ -16,6 +20,8 @@ function Pocketbook(props) {
                         <Pocket
                         name = {item}
                         toggleInv = {props.toggleInv}
+                        activeStyle = {styles}
+                        invScreen = {props.invScreen}
                         />
                     )
                 })

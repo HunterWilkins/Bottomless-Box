@@ -23,3 +23,12 @@ h3 {
     min-width:300px;
     line-height:1.5em;
 }
+
+#home-button {
+    padding:15px;
+    border:rgb(253, 214, 198) solid 2px;
+    background:rgb(51, 45, 45);
+    color:rgb(253, 214, 198);
+    font-size:18px;
+    font-style:italic;
+}

@@ -42,7 +42,6 @@ class Home extends Component {
         }
     }
 
-
     toggleModal = (type, infoObject, pocket ) => {
         this.setState({modal:!this.state.modal});
 
@@ -225,9 +224,9 @@ class Home extends Component {
                 pockets = {this.pockets} 
                 toggleModal = {this.toggleModal}
                 toggleInv = {this.toggleInv}
+                invScreen = {this.state.invScreen}
                 />
                 
-
                 <Inventory 
                     inventory = {this.inventory} 
                     invScreen = {this.state.invScreen} 

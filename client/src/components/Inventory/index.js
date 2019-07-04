@@ -35,9 +35,11 @@ function Inventory(props) {
             <button  id = "trash" onClick = {() => {props.deletePocket()}}>
                 <p>🗑</p>
             </button>
-            <button id = "info">
-                <p>i</p>
-            </button>
+            <a href = "/info">
+                <button id = "info">
+                    <p>i</p>
+                </button>
+            </a>
             <button id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>
                 <p>+</p>
             </button>
