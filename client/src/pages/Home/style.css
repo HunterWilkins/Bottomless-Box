@@ -57,10 +57,19 @@ button {
     padding:none;
     border-radius:4px;
 
+    text-align:center;
+
     background:rgb(103, 73, 64);
     color:inherit;
 
     position:absolute;
+}
+
+#inv-buttons button p {
+    position:absolute;
+    transform:translate(-50%, -50%);
+    top:50%;
+    left:50%;
 }
 
 #add-btn {
@@ -70,6 +79,7 @@ button {
 
 #trash {
     top:0px;
+    font-size:30px;
 }
 
 #info {

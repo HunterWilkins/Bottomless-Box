@@ -32,9 +32,15 @@ function Inventory(props) {
         </div>
         
         <div id = "inv-buttons">
-            <button  id = "trash" onClick = {() => {props.deletePocket()}}>Trash</button>
-            <button id = "info">i</button>
-            <button id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>+</button>
+            <button  id = "trash" onClick = {() => {props.deletePocket()}}>
+                <p>🗑</p>
+            </button>
+            <button id = "info">
+                <p>i</p>
+            </button>
+            <button id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>
+                <p>+</p>
+            </button>
             {/* <button className = "symbol-btn">x</button> */}
         </div>
     
