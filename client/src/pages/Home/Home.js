@@ -8,7 +8,7 @@ import Inventory from "../../components/Inventory";
 class Home extends Component {
     state = {
         modal: false,
-        modalType: "",
+        modalType: "inventory",
         itemName: "",
         itemVal: "",
         itemQty: "",
@@ -46,6 +46,9 @@ class Home extends Component {
     toggleModal = (type, infoObject, pocket ) => {
         this.setState({modal:!this.state.modal});
 
+        console.log("Modal Type Before Button Pressed:");
+        console.log(this.state.modalType);
+
         if (type === "pocket"){
             this.setState(
                 {
@@ -62,8 +65,6 @@ class Home extends Component {
                 itemId: infoObject.id,
                 modalType:"item"
             });
-            console.log("Item Type Creation");
-            console.log(infoObject);
         }
 
         else if (type === "inventory") {
@@ -75,8 +76,10 @@ class Home extends Component {
                 itemId: ""
             })
         }
-        console.log(this.state);
-
+        
+        console.log("Modal Type After Button Pressed:");
+        console.log(this.state.modalType);
+        console.log("=/=/=/=/=/=/=/=/=/=/");
     }
 
     toggleInv = (pocketName) => {
@@ -95,7 +98,6 @@ class Home extends Component {
     create = () => {
         let repeat;
 
-        this.toggleModal();
 
         this.inventory.forEach(item => {
             if (item.id === this.state.itemId) {
@@ -120,6 +122,12 @@ class Home extends Component {
         }
 
         this.filteredInv = this.inventory.filter(item => item.type === this.state.invScreen);
+        this.toggleModal("inventory", "");
+
+    }
+
+    logState = () => {
+        console.log(this.state);
     }
 
     makePocket = (newItemType) => {
@@ -172,14 +180,21 @@ class Home extends Component {
         this.updateStorage();
     };
 
-    delete = () => {
+    delete = (id) => {
+        console.log(id);
         this.inventory.forEach(item => {
             
-            if (item.id === this.state.itemId) {
+            if (item.id === id) {
+                console.log("The item id in Inventory:");
+                console.log(item.id);
+
+                console.log("The item id passed into this:");
+                console.log(id)
                 let deletionIndex = this.inventory.indexOf(item);
+                console.log("Deleted Item");
                 console.log(this.inventory[deletionIndex]);
 
-                this.inventory.splice(this.inventory[deletionIndex]);
+                this.inventory.splice(this.inventory[deletionIndex], 1);
                 this.updateStorage();
             }
         });
@@ -206,6 +221,7 @@ class Home extends Component {
                     type = {this.state.modalType}
                 />
 
+                <button onClick = {this.logState}>Log State</button>
                 
                 
                 <Pocketbook 
