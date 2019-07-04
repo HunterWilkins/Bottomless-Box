@@ -3,7 +3,7 @@
     text-align:center;
     overflow-y:scroll;
     height:100vh;
-    -webkit-overflow-scrolling:touch;
+    /* -webkit-overflow-scrolling:touch; */
 }
 
 h1 {
