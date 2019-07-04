@@ -12,3 +12,8 @@
 a {
     color:inherit;
 }
+
+#inv-title {
+    background: rgb(32, 28, 28);
+    padding:5px;
+}

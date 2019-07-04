@@ -14,7 +14,7 @@ function Inventory(props) {
 
     return(
     <div id = "inventory">
-        <h1>{props.invScreen}</h1>
+        <h1 id = "inv-title">{props.invScreen}</h1>
     
         <Item toggleModal = {props.toggleModal} type = "legend" name = "Name" value = "$" qty = "#"/>
         <div id = "items">
