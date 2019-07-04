@@ -219,10 +219,7 @@ class Home extends Component {
                     makePocket = {this.makePocket}
 
                     type = {this.state.modalType}
-                />
-
-                <button onClick = {this.logState}>Log State</button>
-                
+                />                
                 
                 <Pocketbook 
                 pockets = {this.pockets} 
