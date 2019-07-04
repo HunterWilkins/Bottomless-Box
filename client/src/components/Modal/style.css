@@ -33,6 +33,14 @@
     border-right:rgb(34, 18, 15) solid 2px;
     background:rgb(45, 32, 30);
     color:rgb(216, 180, 152);
+    
+}
+
+#modal button p {
+    transform: translate(-50%, -50%);
+    position:absolute;
+    top:50%;
+    left:50%;
 }
 
 #modal input {

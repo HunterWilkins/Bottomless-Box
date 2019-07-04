@@ -14,7 +14,11 @@ function Modal(props) {
                 <Pocket func = "modal" name = "Vegetables" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Junk Food" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Medicine" makePocket = {props.makePocket} />
-                <button id = "modal-close" onClick = {() => {props.toggleModal("pocket", null)}}>X</button>
+                <button id = "modal-close" onClick = {() => {props.toggleModal("pocket", null)}}>
+                    <p>
+                    X
+                    </p>
+                </button>
             </div>
             </div>
         )
@@ -31,8 +35,16 @@ function Modal(props) {
                 <button className = "qty-editor">+</button>
                 <button className = "qty-editor">-</button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
-                <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>X</button>
-                <button id = "modal-trash" onClick = {() => {props.delete(props.itemId)}}>🗑</button>
+                <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
+                    <p>
+                        X
+                    </p>
+                </button>
+                <button id = "modal-trash" onClick = {() => {props.delete(props.itemId)}}>
+                    <p>
+                    🗑
+                    </p>
+                </button>
                 
             </div>
             </div>
@@ -50,8 +62,16 @@ function Modal(props) {
                 <button className = "qty-editor">+</button>
                 <button className = "qty-editor">-</button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
-                <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>X</button>
-                <button id = "modal-trash" onClick = {() => {props.delete(props.itemId)}}>🗑</button>
+                <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
+                    <p>
+                    X
+                    </p>
+                </button>
+                <button id = "modal-trash" onClick = {() => {props.delete(props.itemId)}}>
+                    <p>
+                    🗑
+                    </p>
+                    </button>
                 
             </div>
             </div>
