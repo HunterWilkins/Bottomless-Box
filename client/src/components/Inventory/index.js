@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import Item from "../Item";
+import {Link} from "react-router-dom";
 
 function Inventory(props) {
     let filteredInv;
@@ -35,11 +36,11 @@ function Inventory(props) {
             <button  id = "trash" onClick = {() => {props.deletePocket()}}>
                 <p>🗑</p>
             </button>
-            <a href = "/info">
+            <Link to="/info">
                 <button id = "info">
-                    <p>i</p>
+                    <p>?</p>
                 </button>
-            </a>
+            </Link>
             <button id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>
                 <p>+</p>
             </button>

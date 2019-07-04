@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./style.css";
+import {Link} from "react-router-dom";
 
 class Info extends Component {
     state = {
@@ -49,7 +50,7 @@ class Info extends Component {
                     trash icon at the bottom left of the popup. 
                 </p>
 
-                <a href = "/"><button id = "home-button">Open the Bottomless Box!</button></a>
+                <Link to= "/"><button id = "home-button">Open the Bottomless Box!</button></Link>
            </div>
         )
     }
