@@ -11,7 +11,7 @@ class Home extends Component {
         modalType: "inventory",
         itemName: "",
         itemVal: "",
-        itemQty: "",
+        itemQty: 0,
         itemId: "",
         itemType: "",
 
@@ -45,9 +45,6 @@ class Home extends Component {
     toggleModal = (type, infoObject, pocket ) => {
         this.setState({modal:!this.state.modal});
 
-        console.log("Modal Type Before Button Pressed:");
-        console.log(this.state.modalType);
-
         if (type === "pocket"){
             this.setState(
                 {
@@ -69,16 +66,37 @@ class Home extends Component {
         else if (type === "inventory") {
             this.setState({
                 modalType: "inventory",
-                itemName: "",
-                itemVal: "",
-                itemQty: "",
-                itemId: ""
+                itemName: null,
+                itemVal: " ",
+                itemQty: " ",
+                itemId: " " 
             })
         }
-        
-        console.log("Modal Type After Button Pressed:");
-        console.log(this.state.modalType);
-        console.log("=/=/=/=/=/=/=/=/=/=/");
+    }
+
+    addQty = () => {
+        if (this.state.itemQty === "" || this.state.itemQty === " " || this.state.itemQty === null) {
+            this.setState({
+                itemQty: 1
+            });
+        }
+        else {
+            let oldValue = parseInt(this.state.itemQty);
+            let newValue = oldValue + 1;
+            this.setState({
+                itemQty: newValue
+            });
+        }
+    }
+
+    subQty = () => {
+        if (this.state.itemQty !== 0 && this.state.itemQty !== "") {
+            let oldValue = parseInt(this.state.itemQty);
+            let newValue = oldValue - 1;
+            this.setState({
+                itemQty: newValue
+            });
+        }
     }
 
     toggleInv = (pocketName) => {
@@ -214,6 +232,8 @@ class Home extends Component {
                     handleInputChange = {this.handleInputChange}
                     create = {this.create}
                     delete = {this.delete}
+                    addQty = {this.addQty}
+                    subQty = {this.subQty}
 
                     makePocket = {this.makePocket}
 

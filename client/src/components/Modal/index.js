@@ -30,11 +30,11 @@ function Modal(props) {
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
                 
             <div id = "modal" val = {props.itemId}>
-                <input onChange = {props.handleInputChange} name = "itemName" id = "modal-name" type = "text" placeholder = {props.itemName}></input>
-                <input onChange = {props.handleInputChange} name = "itemVal" id = "modal-value" type = "text" placeholder = {props.itemValue}></input>
-                <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "text" placeholder = {props.itemQty}></input>
-                <button className = "qty-editor">+</button>
-                <button className = "qty-editor">-</button>
+                <input onChange = {props.handleInputChange} name = "itemName" id = "modal-name" type = "text" placeholder = {props.itemName} ></input>
+                <input onChange = {props.handleInputChange} name = "itemVal" id = "modal-value" type = "number" placeholder = {props.itemValue} ></input>
+                <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "number" placeholder = {props.itemQty} ></input>
+                <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>
+                <button className = "qty-editor" onClick = {() => {props.subQty()}}>-</button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
                 <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
@@ -57,11 +57,11 @@ function Modal(props) {
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
                 
             <div id = "modal" val = {props.itemId}>
-                <input onChange = {props.handleInputChange} name = "itemName" id = "modal-name" type = "text" placeholder = "Item Name"></input>
-                <input onChange = {props.handleInputChange} name = "itemVal" id = "modal-value" type = "text" placeholder = "Price ($)"></input>
-                <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "text" placeholder = "Quantity" ></input>
-                <button className = "qty-editor">+</button>
-                <button className = "qty-editor">-</button>
+                <input onChange = {props.handleInputChange}  name = "itemName" id = "modal-name" type = "text" placeholder = "Item Name"></input>
+                <input onChange = {props.handleInputChange}  name = "itemVal" id = "modal-value" type = "number" placeholder = "Price ($)"></input>
+                <input onChange = {props.handleInputChange}  name = "itemQty" id = "modal-qty" type = "number" placeholder = "Quantity" ></input>
+                <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>
+                <button className = "qty-editor" onClick = {() => {props.subQty()}}>-</button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
                 <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
