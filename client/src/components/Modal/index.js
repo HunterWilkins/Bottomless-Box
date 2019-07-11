@@ -33,8 +33,16 @@ function Modal(props) {
                 <input onChange = {props.handleInputChange} name = "itemName" id = "modal-name" type = "text" placeholder = {props.itemName}></input>
                 <input onChange = {props.handleInputChange} name = "itemVal" id = "modal-value" type = "number" placeholder = {props.itemVal} ></input>
                 <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "number" placeholder = {props.itemQty} ></input>
-                <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>
-                <button className = "qty-editor" onClick = {() => {props.subQty()}}>-</button>
+                <button className = "qty-editor" onClick = {() => {props.addQty()}}>
+                    <p>
+                        +
+                    </p>
+                    </button>
+                <button className = "qty-editor" onClick = {() => {props.subQty()}}>
+                    <p>
+                        -
+                    </p>
+                    </button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
                 <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
@@ -57,7 +65,7 @@ function Modal(props) {
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
                 
             <div id = "modal" val = {props.itemId}>
-                <input onChange = {props.handleInputChange}  name = "itemName" id = "modal-name" type = "text" placeholder = "Item Name" ></input>
+                <input onChange = {props.handleInputChange}  name = "itemName" id = "modal-name" type = "text" placeholder = "Item Name"></input>
                 <input onChange = {props.handleInputChange}  name = "itemVal" id = "modal-value" type = "number" placeholder = "Price ($)" ></input>
                 <input onChange = {props.handleInputChange}  name = "itemQty" id = "modal-qty" type = "number" placeholder = "Quantity" ></input>
                 <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>

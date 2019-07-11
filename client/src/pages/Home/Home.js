@@ -70,7 +70,7 @@ class Home extends Component {
                 itemVal: " ",
                 itemQty: " ",
                 itemId: " " 
-            })
+            });
         }
     }
 
@@ -139,8 +139,12 @@ class Home extends Component {
         }
 
         this.filteredInv = this.inventory.filter(item => item.type === this.state.invScreen);
+        this.setState({
+            itemName: "",
+            itemVal: "",
+            itemQty: ""
+        });
         this.toggleModal("inventory", "");
-
     }
 
     logState = () => {
@@ -158,14 +162,16 @@ class Home extends Component {
 
     deletePocket = () => {
 
+        console.log(this.state.invScreen);
+
         if (this.state.invScreen !== "All") {
             let deletedPocketIndex = this.pockets.indexOf(this.state.invScreen);
-            this.pockets.splice(deletedPocketIndex,1);
+            this.pockets.splice(deletedPocketIndex, 1);
             this.inventory.forEach(item => {
                 if (item.type === this.state.invScreen) {
                     let deletionIndex = this.inventory.indexOf(item);
                     this.inventory.splice(this.inventory[deletionIndex]);
-                    this.updateStorage();
+                    // this.updateStorage();
                 }
             });
             this.updateStorage();
@@ -174,14 +180,14 @@ class Home extends Component {
             });
         }
 
-        else {
-            this.inventory = [];
-            this.pockets = [];
-            this.updateStorage();
-            this.setState({
-                invScreen: "All"
-            });
-        }
+        // else {
+        //     this.inventory = [];
+        //     this.pockets = [];
+        //     this.updateStorage();
+        //     this.setState({
+        //         invScreen: "All"
+        //     });
+        // }
 
     }
 
@@ -219,10 +225,12 @@ class Home extends Component {
         this.toggleModal();
     };
 
+
     render(){
-        return(
-            <div id = "content">
-                <Modal 
+        if (this.state.modal){
+            return (
+                <div>
+                    <Modal 
                     modal = {this.state.modal} 
                     itemName = {this.state.itemName}
                     itemVal = {this.state.itemVal}
@@ -239,6 +247,12 @@ class Home extends Component {
 
                     type = {this.state.modalType}
                 />                
+                </div>
+            )
+        }
+        return(
+            <div id = "content">
+                
                 
                 <Pocketbook 
                 pockets = {this.pockets} 
