@@ -75,7 +75,7 @@ class Home extends Component {
     }
 
     addQty = () => {
-        if (this.state.itemQty === "" || this.state.itemQty === " " || this.state.itemQty === null) {
+        if (this.state.itemQty === "") {
             this.setState({
                 itemQty: 1
             });
