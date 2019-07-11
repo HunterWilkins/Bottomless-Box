@@ -130,6 +130,8 @@ class Home extends Component {
                 type: this.state.invScreen,
                 id: this.inventory.length
             }
+
+            console.log(newItem.type);
             
             this.inventory.push(newItem);
             this.updateStorage();
@@ -166,11 +168,14 @@ class Home extends Component {
 
         if (this.state.invScreen !== "All") {
             let deletedPocketIndex = this.pockets.indexOf(this.state.invScreen);
+            console.log("The Deleted Pocket Index is: " + deletedPocketIndex);
             this.pockets.splice(deletedPocketIndex, 1);
             this.inventory.forEach(item => {
                 if (item.type === this.state.invScreen) {
+                    console.log(item);
                     let deletionIndex = this.inventory.indexOf(item);
-                    this.inventory.splice(this.inventory[deletionIndex]);
+                    console.log(this.inventory[deletionIndex]);
+                    this.inventory.splice(this.inventory[deletionIndex], 1);
                     // this.updateStorage();
                 }
             });
@@ -203,21 +208,16 @@ class Home extends Component {
         this.updateStorage();
     };
 
-    delete = (id) => {
-        console.log(id);
+    delete = () => {
         this.inventory.forEach(item => {
-            
-            if (item.id === id) {
-                console.log("The item id in Inventory:");
-                console.log(item.id);
-
-                console.log("The item id passed into this:");
-                console.log(id)
+            console.log("Item Name: " + item.name + "\nItem Id: " + item.id);
+            if (item.name === this.state.itemName) {
+                console.log("This item should be deleted: " + item.name)
                 let deletionIndex = this.inventory.indexOf(item);
-                console.log("Deleted Item");
-                console.log(this.inventory[deletionIndex]);
-
-                this.inventory.splice(this.inventory[deletionIndex], 1);
+                console.log("This is the deletion index: " + deletionIndex);
+                console.log("This is the item at the deletion index: " + this.inventory[deletionIndex].name);
+                this.inventory.splice(this.inventory.indexOf(item), 1);
+                console.log(this.inventory);
                 this.updateStorage();
             }
         });

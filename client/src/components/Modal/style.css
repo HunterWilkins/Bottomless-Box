@@ -91,6 +91,7 @@
 }
 
 .qty-editor {
+    display:inline-block;
     margin:0 5px;
     font-size:20px;
     height:50px;

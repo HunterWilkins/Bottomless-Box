@@ -49,7 +49,7 @@ function Modal(props) {
                         X
                     </p>
                 </button>
-                <button id = "modal-trash" onClick = {() => {props.delete(props.itemId)}}>
+                <button id = "modal-trash" onClick = {() => {props.delete()}}>
                     <p>
                     🗑
                     </p>
@@ -76,7 +76,7 @@ function Modal(props) {
                     X
                     </p>
                 </button>
-                <button id = "modal-trash" onClick = {() => {props.delete(props.itemId)}}>
+                <button id = "modal-trash" onClick = {() => {props.delete()}}>
                     <p>
                     🗑
                     </p>
