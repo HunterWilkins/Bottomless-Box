@@ -22,6 +22,12 @@ class Home extends Component {
     pockets = [];
 
     updateStorage = () => {
+        let newId = 0;
+        this.inventory.forEach(item => {
+            item.id = newId;
+            newId++;
+        });
+        
         localStorage.setItem("inventory", JSON.stringify(this.inventory));
         localStorage.setItem("pockets", JSON.stringify(this.pockets));
     }
@@ -120,7 +126,7 @@ class Home extends Component {
             if (item.id === this.state.itemId) {
                 repeat = true;
             }
-        })
+        });
 
         if (!repeat) {
             let newItem = {
@@ -131,7 +137,6 @@ class Home extends Component {
                 id: this.inventory.length
             }
 
-            console.log(newItem.type);
             
             this.inventory.push(newItem);
             this.updateStorage();
@@ -210,14 +215,8 @@ class Home extends Component {
 
     delete = () => {
         this.inventory.forEach(item => {
-            console.log("Item Name: " + item.name + "\nItem Id: " + item.id);
-            if (item.name === this.state.itemName) {
-                console.log("This item should be deleted: " + item.name)
-                let deletionIndex = this.inventory.indexOf(item);
-                console.log("This is the deletion index: " + deletionIndex);
-                console.log("This is the item at the deletion index: " + this.inventory[deletionIndex].name);
+            if (item.id === this.state.itemId) {
                 this.inventory.splice(this.inventory.indexOf(item), 1);
-                console.log(this.inventory);
                 this.updateStorage();
             }
         });
