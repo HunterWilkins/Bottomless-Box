@@ -177,19 +177,12 @@ class Home extends Component {
 
         else {
             let newArray = [];
-            console.log(this.state.invScreen);
             for (var i = 0; i < this.inventory.length; i++) {
                 let item = this.inventory[i];
-
                 if (item.type !== this.state.invScreen) {
-                    console.log("This item should be deleted: " + item.name);
                     newArray.push(item);
-                    console.log(newArray);
                 }
-
             };
-            console.log("~ Final version of newArray ~ ");
-            console.log(newArray);
             this.inventory = newArray;
 
             this.pockets.splice((this.pockets.indexOf(this.state.invScreen)), 1);
