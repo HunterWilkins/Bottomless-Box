@@ -27,7 +27,7 @@ class Home extends Component {
             item.id = newId;
             newId++;
         });
-        
+
         localStorage.setItem("inventory", JSON.stringify(this.inventory));
         localStorage.setItem("pockets", JSON.stringify(this.pockets));
     }
@@ -169,36 +169,36 @@ class Home extends Component {
 
     deletePocket = () => {
 
-        console.log(this.state.invScreen);
-
-        if (this.state.invScreen !== "All") {
-            let deletedPocketIndex = this.pockets.indexOf(this.state.invScreen);
-            console.log("The Deleted Pocket Index is: " + deletedPocketIndex);
-            this.pockets.splice(deletedPocketIndex, 1);
-            this.inventory.forEach(item => {
-                if (item.type === this.state.invScreen) {
-                    console.log(item);
-                    let deletionIndex = this.inventory.indexOf(item);
-                    console.log(this.inventory[deletionIndex]);
-                    this.inventory.splice(this.inventory[deletionIndex], 1);
-                    // this.updateStorage();
-                }
-            });
-            this.updateStorage();
-            this.setState({
-                invScreen: "All"
-            });
+        
+        if (this.state.invScreen === "All") {
+            this.inventory = [];
+            this.pockets = [];
         }
 
-        // else {
-        //     this.inventory = [];
-        //     this.pockets = [];
-        //     this.updateStorage();
-        //     this.setState({
-        //         invScreen: "All"
-        //     });
-        // }
+        else {
+            let newArray = [];
+            console.log(this.state.invScreen);
+            for (var i = 0; i < this.inventory.length; i++) {
+                let item = this.inventory[i];
 
+                if (item.type !== this.state.invScreen) {
+                    console.log("This item should be deleted: " + item.name);
+                    newArray.push(item);
+                    console.log(newArray);
+                }
+
+            };
+            console.log("~ Final version of newArray ~ ");
+            console.log(newArray);
+            this.inventory = newArray;
+
+            this.pockets.splice((this.pockets.indexOf(this.state.invScreen)), 1);
+        }
+
+        this.updateStorage();
+        this.setState({
+            invScreen: "All"
+        });
     }
 
     update = (id) => {
