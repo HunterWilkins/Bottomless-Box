@@ -41,6 +41,9 @@ function Inventory(props) {
                     <p>?</p>
                 </button>
             </Link>
+            <button id = "total" onClick = {() => {props.calcTotal()}}>
+                $
+            </button>
             <button id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>
                 <p>+</p>
             </button>

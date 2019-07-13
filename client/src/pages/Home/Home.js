@@ -105,6 +105,26 @@ class Home extends Component {
         }
     }
 
+    calcTotal = () => {
+        let total = 0;
+
+        if (this.state.invScreen === "All") {
+            this.inventory.forEach(item => {
+                total += parseFloat(item.value);
+            });
+
+            alert("All of your items add up to $" + total.toFixed(2) + ".");
+        }
+        else {
+            this.inventory.forEach(item => {
+                if (item.type === this.state.invScreen) {
+                    total += parseFloat(item.value);
+                }
+            });
+            alert("Total Value of " + this.state.invScreen + " Pocket = $" + total.toFixed(2));
+        }
+    }
+
     toggleInv = (pocketName) => {
         this.setState({
             invScreen: pocketName
@@ -258,6 +278,8 @@ class Home extends Component {
                     invScreen = {this.state.invScreen} 
                     toggleModal = {this.toggleModal}
                     deletePocket = {this.deletePocket}
+                    calcTotal = {this.calcTotal}
+
                 />
             </div>
         )
