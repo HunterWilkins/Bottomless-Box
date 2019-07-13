@@ -120,6 +120,10 @@ button {
 
     #dashboard {
         height:100px;
+        width:initial;
+        position:absolute;
+        right:60px;
+        left:0px;
     }
 
     #inventory {
@@ -128,6 +132,7 @@ button {
     }
     
     #inv-buttons {
+        top:-100px;
         width:50px;
         right:-55px;
     }
