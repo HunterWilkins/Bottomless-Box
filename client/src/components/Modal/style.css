@@ -105,3 +105,33 @@
     left:50%;
     transform:translate(-50%, -50%);
 }
+
+@media only screen and (max-height: 350px) {
+
+    #modal {
+        height:90vh;
+        min-height:initial;
+        max-height:initial;
+        overflow-y: scroll;
+    }
+
+    #modal input {
+        padding:10px;
+    }
+
+    #modal-submit {
+        width:60%;
+        height:50px;
+        position:absolute;
+        bottom:0px;
+        left:50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media only screen and (max-height: 280px) {
+    #modal input {
+        width:48%;
+        margin-right: 5px;
+    }
+}
