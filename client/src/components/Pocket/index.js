@@ -3,17 +3,8 @@ import "./style.css";
 
 function Pocket(props) {
 
-    let styleWidth;
-
-    if (window.innerWidth >= 530) {
-        styleWidth = "100px";
-    }
-
-    
-
     let styles = {
         background: "url('/images/" + props.name + ".png')",
-        "background-size" : styleWidth
     }
 
     if (props.func === "add") {

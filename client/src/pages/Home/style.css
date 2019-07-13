@@ -119,7 +119,6 @@ button {
 @media only screen and (max-height: 530px){
 
     #dashboard {
-        height:100px;
         width:initial;
         position:absolute;
         right:60px;
@@ -128,11 +127,11 @@ button {
 
     #inventory {
         right:60px;
-        top: 105px;
+        top: 155px;
     }
     
     #inv-buttons {
-        top:-100px;
+        top:-150px;
         width:50px;
         right:-55px;
     }
