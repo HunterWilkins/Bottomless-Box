@@ -71,7 +71,7 @@ function Modal(props) {
                 <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>
                 <button className = "qty-editor" onClick = {() => {props.subQty()}}>-</button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
-                <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
+                <button className = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
                     X
                     </p>
@@ -86,6 +86,26 @@ function Modal(props) {
             </div>
         );
     }
+
+    else if (props.type === "settings") {
+        return(
+            <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}} >
+                <div id = "modal">
+                    <h1>Settings</h1>
+                    <h2>Color Scheme</h2>
+                    <button>Blue</button>
+                    <button>Brown</button>
+                    <button>Green</button>
+                    <button>Gray</button>
+                    <button className = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}} >
+                        <p>X</p>
+                    </button>
+                </div>
+            </div>
+            
+        )
+    }
+
     else {
         return(
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}} />

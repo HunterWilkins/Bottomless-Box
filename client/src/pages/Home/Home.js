@@ -78,6 +78,12 @@ class Home extends Component {
                 itemId: " " 
             });
         }
+
+        else if (type === "settings") {
+            this.setState({
+                modalType: "settings"
+            });
+        }
     }
 
     addQty = () => {

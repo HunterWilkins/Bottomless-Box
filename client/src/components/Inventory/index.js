@@ -46,7 +46,7 @@ function Inventory(props) {
                 $
                 </p>
             </button>
-            <button id = "settings" onClick = {() => {props.calcTotal()}}>
+            <button id = "settings" onClick = {() => {props.toggleModal("settings", null)}}>
                 <p>
                 ⚙
                 </p>
