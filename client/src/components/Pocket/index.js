@@ -5,7 +5,7 @@ function Pocket(props) {
 
     let styleWidth;
 
-    if (window.innerWidth > 530) {
+    if (window.innerWidth >= 530) {
         styleWidth = "100px";
     }
 
