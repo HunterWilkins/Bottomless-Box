@@ -15,11 +15,33 @@ class Home extends Component {
         itemId: "",
         itemType: "",
 
+        theme: "Brown",
+
         invScreen: "All"
     }
 
     inventory = [];
     pockets = [];
+
+    colorSchemes = {
+
+        Blue: {
+            background: "rgb(28,32,32)",
+            color: "rgb(198, 253, 247)",
+            ultraBackground: {
+                background: "rgb(6,7,15)"
+            }
+        },
+        Brown: {
+            background: "rgb(32,28,28)",
+            color: "rgb(253, 214, 198)"
+        },
+        Green: {
+            background: "rgb(28, 32, 28)",
+            color: "rgb(226, 253, 198)"
+        }
+        
+    }
 
     updateStorage = () => {
         let newId = 0;
@@ -279,14 +301,17 @@ class Home extends Component {
                 toggleModal = {this.toggleModal}
                 toggleInv = {this.toggleInv}
                 invScreen = {this.state.invScreen}
+                colorSchemes = {this.colorSchemes}
                 />
                 
                 <Inventory 
+                    colorSchemes = {this.colorSchemes}
                     inventory = {this.inventory} 
                     invScreen = {this.state.invScreen} 
                     toggleModal = {this.toggleModal}
                     deletePocket = {this.deletePocket}
                     calcTotal = {this.calcTotal}
+                    theme = {this.state.theme}
 
                 />
             </div>

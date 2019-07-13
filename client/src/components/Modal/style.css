@@ -110,6 +110,12 @@
     transform:translate(-50%, -50%);
 }
 
+#pocketbook-field {
+    overflow-y: scroll;
+    height:400px;
+    padding-bottom: 40px;
+}
+
 @media only screen and (max-height: 350px) {
 
     #modal {

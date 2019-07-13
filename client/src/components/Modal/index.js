@@ -9,13 +9,16 @@ function Modal(props) {
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
                 
             <div id = "modal">
+                <div id = "pocketbook-field">
                 <Pocket func = "modal" name = "Food" makePocket = {props.makePocket}/>
                 <Pocket func = "modal" name = "Fruit"  makePocket = {props.makePocket}/>
                 <Pocket func = "modal" name = "Vegetables" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Junk Food" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Medicine" makePocket = {props.makePocket} />
+                <Pocket func = "modal" name = "Electronics" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Misc" makePocket = {props.makePocket} />
-                <button id = "modal-close" onClick = {() => {props.toggleModal("pocket", null)}}>
+                </div>
+                <button className = "modal-close" onClick = {() => {props.toggleModal("pocket", null)}}>
                     <p>
                     X
                     </p>

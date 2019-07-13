@@ -23,13 +23,13 @@ function Pocket(props) {
         );
     }
 
-    else if (props.name === "All") {
-        return (
-            <div className = "pocket" style = {styles} onClick = {() => {props.toggleInv(props.name)}}>
-                <h2>*</h2>
-            </div>
-        );
-    }
+    // else if (props.name === "All") {
+    //     return (
+    //         <div className = "pocket" style = {styles} onClick = {() => {props.toggleInv(props.name)}}>
+    //             <h2>*</h2>
+    //         </div>
+    //     );
+    // }
 
     else {
         return (
