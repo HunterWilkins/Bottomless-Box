@@ -110,7 +110,7 @@ class Home extends Component {
 
         if (this.state.invScreen === "All") {
             this.inventory.forEach(item => {
-                total += parseFloat(item.value);
+                total += parseFloat(item.value * item.quantity);
             });
 
             alert("All of your items add up to $" + total.toFixed(2) + ".");
@@ -118,7 +118,7 @@ class Home extends Component {
         else {
             this.inventory.forEach(item => {
                 if (item.type === this.state.invScreen) {
-                    total += parseFloat(item.value);
+                    total += parseFloat(item.value * item.quantity);
                 }
             });
             alert("Total Value of " + this.state.invScreen + " Pocket = $" + total.toFixed(2));
