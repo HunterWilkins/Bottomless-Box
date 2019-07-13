@@ -31,6 +31,25 @@ button {
     cursor:pointer;
 }
 
+#dashboard {
+    padding:15px;
+    background:rgb(47, 36, 36);
+    overflow-x: scroll;
+    -webkit-overflow-scrolling:touch;
+    overflow-y:hidden;
+    white-space:nowrap;
+    height:150px;
+    width:100vw;
+    position:relative;
+}
+
+#dashboard > * {
+    display:inline-block;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+
 #inventory {
     position:absolute;
     top:154px;
@@ -73,12 +92,12 @@ button {
 }
 
 #add-btn {
-    bottom:0px;
+    top:0px;
     font-size:30px;
 }
 
 #trash {
-    top:0px;
+    bottom:0px;
     font-size:30px;
 }
 
@@ -90,6 +109,46 @@ button {
 #total {
     top:150px;
     font-size:30px;
+}
+
+#settings {
+    top:225px;
+    font-size:30px;
+}
+
+@media only screen and (max-height: 600px){
+
+    #dashboard {
+        height:100px;
+    }
+
+    #inventory {
+        right:60px;
+        top: 105px;
+    }
+    
+    #inv-buttons {
+        width:50px;
+        right:-55px;
+    }
+
+    #inv-buttons button {
+        width:50px;
+        height:50px;
+        font-size:15px;
+    }
+
+    #info {
+        top: 55px;
+    }
+
+    #total {
+        top: 110px;
+    }
+
+    #settings {
+        top:165px;
+    }
 }
 /* 
 .symbol-btn {

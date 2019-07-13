@@ -35,3 +35,11 @@
 
     background:rgba(30, 17, 15, .75);
 }
+
+@media only screen and (max-height: 600px) {
+    .pocket {
+        width:75px;
+        height: 75px;
+        background-size: 100%;
+    }
+}
