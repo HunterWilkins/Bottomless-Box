@@ -116,7 +116,7 @@ button {
     font-size:30px;
 }
 
-@media only screen and (max-height: 550px){
+@media only screen and (max-height: 530px){
 
     #dashboard {
         height:100px;
