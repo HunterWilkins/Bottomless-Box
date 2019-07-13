@@ -188,11 +188,13 @@ class Home extends Component {
     }
 
     deletePocket = () => {
-
         
         if (this.state.invScreen === "All") {
-            this.inventory = [];
-            this.pockets = [];
+            let confirmation = window.confirm("Are you sure that you want to delete all of your items?");
+            if (confirmation) {
+                this.inventory = [];
+                this.pockets = [];
+            }
         }
 
         else {
