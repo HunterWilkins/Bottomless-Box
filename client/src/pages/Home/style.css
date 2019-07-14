@@ -115,6 +115,7 @@ button {
 #settings {
     top:225px;
     font-size:30px;
+    display:none;
 }
 
 @media only screen and (max-height: 530px){
