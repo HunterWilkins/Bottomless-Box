@@ -21,12 +21,13 @@ class Info extends Component {
                <div id = "overall-text-box">
                <h2>About</h2>
                <p className = "info-desc">
-                   Hello, user! Do you ache for some organization? 
+                   Hello! Do you ache for some organization? 
                    Has your life been filled with uncertainty and self-doubt...with regard to inventory management?
-                   Well, doubt and feel uncertain no more, for the Bottomless Box is here to make keeping track of the
-                   things around your house infinitely less boring!
+                   Well, doubt and feel uncertain no more! The Bottomless Box is here to make keeping track of the
+                   things around your house less boring!
                </p>
                 <h2>How to Use</h2>
+                <hr />
                 <h2>Adding/Editing Items</h2>
                 
                 <p className = "info-desc">
@@ -42,8 +43,8 @@ class Info extends Component {
 
                 <h2>Deleting Items/Pockets</h2>
                 <p className = "info-desc">
-                    At the top right of the inventory button section, you'll see a trash icon. If you activate this,
-                    then you'll delete the entire pocket you're inside, along with all the items. 
+                    If you activate the trash icon in the sidebar,
+                     you'll delete the entire pocket you're inside, along with all the items. 
                     <br />
                     If you wish to delete a single item, click (or tap) on the item and hit the 
                     trash icon at the bottom left of the popup. 
