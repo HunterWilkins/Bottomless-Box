@@ -47,7 +47,7 @@ function Modal(props) {
                     </p>
                     </button>
                 <button id = "modal-submit" onClick = {props.create}>Submit</button>
-                <button id = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
+                <button className = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
                         X
                     </p>

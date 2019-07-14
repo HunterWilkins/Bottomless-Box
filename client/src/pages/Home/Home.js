@@ -24,7 +24,6 @@ class Home extends Component {
     pockets = [];
 
     colorSchemes = {
-
         Blue: {
             background: "rgb(28,32,32)",
             color: "rgb(198, 253, 247)",
@@ -40,7 +39,6 @@ class Home extends Component {
             background: "rgb(28, 32, 28)",
             color: "rgb(226, 253, 198)"
         }
-        
     }
 
     updateStorage = () => {
