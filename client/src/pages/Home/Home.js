@@ -1,9 +1,12 @@
 import React, {Component} from "react";
+import {Redirect} from "react-router-dom";
 import "./style.css";
+
 
 import Pocketbook from "../../components/Pocketbook";
 import Modal from "../../components/Modal";
 import Inventory from "../../components/Inventory";
+import Info from "../Info/Info";
 
 class Home extends Component {
     state = {
@@ -70,7 +73,7 @@ class Home extends Component {
 
         let firstTime = JSON.parse(localStorage.getItem("firstTime"));
         if (!firstTime) {
-            window.location.replace("/info");
+            this.firstTime = true;
         }
     }
 
@@ -296,30 +299,39 @@ class Home extends Component {
                 </div>
             )
         }
-        return(
-            <div id = "content">
-                
-                
-                <Pocketbook 
-                pockets = {this.pockets} 
-                toggleModal = {this.toggleModal}
-                toggleInv = {this.toggleInv}
-                invScreen = {this.state.invScreen}
-                colorSchemes = {this.colorSchemes}
-                />
-                
-                <Inventory 
-                    colorSchemes = {this.colorSchemes}
-                    inventory = {this.inventory} 
-                    invScreen = {this.state.invScreen} 
+        if (this.firstTime) {
+            this.firstTime = false;
+            return(
+                <Info />
+            )
+        }
+        else {
+            return(
+                <div id = "content">
+                    
+                    
+                    <Pocketbook 
+                    pockets = {this.pockets} 
                     toggleModal = {this.toggleModal}
-                    deletePocket = {this.deletePocket}
-                    calcTotal = {this.calcTotal}
-                    theme = {this.state.theme}
-
-                />
-            </div>
-        )
+                    toggleInv = {this.toggleInv}
+                    invScreen = {this.state.invScreen}
+                    colorSchemes = {this.colorSchemes}
+                    />
+                    
+                    <Inventory 
+                        colorSchemes = {this.colorSchemes}
+                        inventory = {this.inventory} 
+                        invScreen = {this.state.invScreen} 
+                        toggleModal = {this.toggleModal}
+                        deletePocket = {this.deletePocket}
+                        calcTotal = {this.calcTotal}
+                        theme = {this.state.theme}
+    
+                    />
+                </div>
+            )
+        }
+        
     }
 }
 
