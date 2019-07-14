@@ -98,12 +98,12 @@ button {
 }
 
 #trash {
-    bottom:0px;
+    top:75px;
     font-size:30px;
 }
 
 #info {
-    top:75px;
+    bottom:0px;
     font-size:30px;
 }
 
