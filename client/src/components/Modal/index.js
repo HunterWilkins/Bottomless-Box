@@ -14,6 +14,7 @@ function Modal(props) {
                 <Pocket func = "modal" name = "Fruit"  makePocket = {props.makePocket}/>
                 <Pocket func = "modal" name = "Vegetables" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Junk Food" makePocket = {props.makePocket} />
+                <Pocket func = "modal" name = "Drinks" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Medicine" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Electronics" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Misc" makePocket = {props.makePocket} />
