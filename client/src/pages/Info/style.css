@@ -12,10 +12,26 @@ h1 {
 
 h2 {
     font-size: 26px;
+    padding:5px;
+    background:rgb(29, 24, 25);
 }
 
 h3 {
     font-size: 22px;
+}
+
+hr {
+    border-bottom:none;
+    border-color:rgb(253, 214, 198);
+    border-width: 2px;
+}
+
+#overall-text-box {
+    padding:15px;
+    max-width: 500px;
+    min-width:250px;
+    margin:0 auto;
+    background:rgb(42, 36, 37);
 }
 
 .info-desc {
@@ -23,6 +39,8 @@ h3 {
     max-width:500px;
     min-width:300px;
     line-height:1.5em;
+    color:rgb(198, 162, 154);
+    text-align:left;
 }
 
 #home-button {

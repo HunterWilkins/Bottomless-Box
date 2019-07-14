@@ -15,8 +15,8 @@
     transform:translate(-50%, -50%);
     max-width:500px;
     min-width:300px;
-    max-height:500px;
-    min-height:350px;
+    max-height:515px;
+    min-height:365px;
 
     padding:15px;
     text-align:center;
@@ -26,14 +26,31 @@
     z-index:10;
 }
 
+.modal-title {
+    text-align:center;
+    width:100%;
+    padding:5px;
+    font-size:25px;
+    border-radius:5px;
+    background:rgb(45, 32, 30, .75);
+    margin-bottom:5px;
+
+}
+
 #modal button{
-    border-top:rgb(152, 118, 98) solid 2px;
+    /* border-top:rgb(152, 118, 98) solid 2px;
     border-left:rgb(152, 118, 98) solid 2px;
     border-bottom:rgb(34, 18, 15) solid 2px;
-    border-right:rgb(34, 18, 15) solid 2px;
+    border-right:rgb(34, 18, 15) solid 2px; 
+    */
+    border:rgb(103, 73, 64) solid 2px;
+    border-radius:5px;
     background:rgb(45, 32, 30);
     color:rgb(216, 180, 152);
-    
+}
+
+#modal button:hover{
+    border-color:rgb(216, 180, 152);
 }
 
 #modal button p {
@@ -61,12 +78,13 @@
 }
 
 #modal-qty {
-    width:50%;
+    width:150px;
+    left:0;
 }
 
 #modal-submit{
     font-size:20px;
-    width:80%;
+    width:70%;
     margin:0 auto;
     padding:15px;
 }
@@ -80,9 +98,10 @@
     position:absolute;
     bottom:0;
     right:0;
-    width:40px;
-    height:40px;
+    width:50px;
+    height:50px;
     font-size:20px;
+    z-index:10;
 }
 
 #modal-trash {
@@ -94,6 +113,19 @@
     font-size:30px;
 }
 
+#qty-editors-div {
+    position:relative;
+    margin-bottom:5px;
+    height:65px;
+    width:100%;
+}
+
+#qty-editors-div > * {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+}
+
 .qty-editor {
     display:inline-block;
     margin:0 5px;
@@ -101,6 +133,11 @@
     height:50px;
     width:50px;
     position:relative;
+    left:205px;
+}
+
+#addition-btn {
+    left:150px;
 }
 
 .qty-editor p {

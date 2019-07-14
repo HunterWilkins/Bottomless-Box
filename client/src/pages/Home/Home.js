@@ -20,6 +20,7 @@ class Home extends Component {
         invScreen: "All"
     }
 
+    firstTime;
     inventory = [];
     pockets = [];
 
@@ -65,6 +66,11 @@ class Home extends Component {
             localPockets.forEach(item => {
                 this.pockets.push(item);
             });
+        }
+
+        let firstTime = JSON.parse(localStorage.getItem("firstTime"));
+        if (!firstTime) {
+            window.location.replace("/info");
         }
     }
 
