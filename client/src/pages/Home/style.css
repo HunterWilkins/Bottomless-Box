@@ -144,8 +144,12 @@ button {
         font-size:15px;
     }
 
-    #info {
+    #trash {
         top: 55px;
+    }
+    
+    #info {
+        bottom:0px;
     }
 
     #total {
