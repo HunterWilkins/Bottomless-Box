@@ -76,13 +76,6 @@ class Home extends Component {
         if (!firstTime) {
             this.firstTime = true;
         }
-
-        this.calcTotal();
-
-    }
-
-    componentDidMount = () => {
-        this.calcTotal();
     }
 
     toggleModal = (type, infoObject, pocket ) => {

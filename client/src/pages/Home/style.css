@@ -38,7 +38,7 @@ button {
     -webkit-overflow-scrolling:touch;
     overflow-y:hidden;
     white-space:nowrap;
-    height:120px;
+    height:130px;
     width:100vw;
     position:relative;
 }
@@ -52,7 +52,7 @@ button {
 
 #inventory {
     position:absolute;
-    top:125px;
+    top:135px;
     bottom:10px;
     left:0;
     right:80px;
@@ -165,11 +165,11 @@ button {
 
     #inventory {
         right:60px;
-        top: 125px;
+        top: 135px;
     }
     
     #inv-buttons {
-        top:-120px;
+        top:-130px;
         width:50px;
         right:-55px;
     }
