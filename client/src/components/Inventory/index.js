@@ -13,6 +13,7 @@ function Inventory(props) {
         filteredInv = props.inventory.filter(item => item.type === props.invScreen);
     }
 
+
     return(
     <div id = "inventory">
         <h1 id = "inv-title">{props.invScreen}</h1>
@@ -31,6 +32,12 @@ function Inventory(props) {
                 );
             })}
         </div>
+        {/* <div id = "item-total">
+            <p id = "item-total-title">Totals</p>
+            <p id = "item-total-val">{props.total}</p>
+            <p id = "item-total-qty"></p>
+        </div> */}
+
         
         <div id = "inv-buttons">
             <button  id = "trash" onClick = {() => {props.deletePocket()}}>

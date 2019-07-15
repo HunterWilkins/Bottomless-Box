@@ -72,7 +72,6 @@ class Info extends Component {
                     I, personally, find Login functionality to be anti-consumer. Moreso than local storage might be.
                 </p>
 
-
                 <hr />
 
                 <Link to= "/"><button onClick = {this.setFirstTime}id = "home-button">Open the Bottomless Box!</button></Link>

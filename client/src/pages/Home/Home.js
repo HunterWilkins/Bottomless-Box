@@ -19,6 +19,7 @@ class Home extends Component {
         itemType: "",
 
         theme: "Brown",
+        total: "",
 
         invScreen: "All"
     }
@@ -75,6 +76,13 @@ class Home extends Component {
         if (!firstTime) {
             this.firstTime = true;
         }
+
+        this.calcTotal();
+
+    }
+
+    componentDidMount = () => {
+        this.calcTotal();
     }
 
     toggleModal = (type, infoObject, pocket ) => {
@@ -113,6 +121,8 @@ class Home extends Component {
                 modalType: "settings"
             });
         }
+
+        this.calcTotal();
     }
 
     addQty = () => {
@@ -141,29 +151,34 @@ class Home extends Component {
     }
 
     calcTotal = () => {
-        let total = 0;
+        let calcTotal = 0;
 
         if (this.state.invScreen === "All") {
             this.inventory.forEach(item => {
-                total += parseFloat(item.value * item.quantity);
+                calcTotal += parseFloat(item.value * item.quantity);
             });
 
-            alert("All of your items add up to $" + total.toFixed(2) + ".");
+            alert("All of your items add up to: $" + calcTotal.toFixed(2))
         }
         else {
             this.inventory.forEach(item => {
                 if (item.type === this.state.invScreen) {
-                    total += parseFloat(item.value * item.quantity);
+                    calcTotal += parseFloat(item.value * item.quantity);
                 }
             });
-            alert("Total Value of " + this.state.invScreen + " Pocket = $" + total.toFixed(2));
+
+            alert("All of the items in your " + this.state.invScreen + " pocket add up to $" + calcTotal.toFixed(2));
         }
+        this.setState({
+            total: calcTotal.toFixed(2)
+        })
     }
 
     toggleInv = (pocketName) => {
         this.setState({
             invScreen: pocketName
         });
+        
     }
     
     handleInputChange = event => {
@@ -326,6 +341,8 @@ class Home extends Component {
                         deletePocket = {this.deletePocket}
                         calcTotal = {this.calcTotal}
                         theme = {this.state.theme}
+
+                        total = {this.state.total}
     
                     />
                 </div>

@@ -4,7 +4,7 @@
 
 body {
     color:rgb(253, 214, 198);
-    background: rgb(32, 28, 28);
+    background: rgb(22, 14, 17);
     font-size:20px;
     overflow:hidden;
     position:fixed;
@@ -38,7 +38,7 @@ button {
     -webkit-overflow-scrolling:touch;
     overflow-y:hidden;
     white-space:nowrap;
-    height:150px;
+    height:120px;
     width:100vw;
     position:relative;
 }
@@ -52,13 +52,49 @@ button {
 
 #inventory {
     position:absolute;
-    top:154px;
-    bottom:0px;
+    top:125px;
+    bottom:10px;
     left:0;
     right:80px;
     padding:10px;
     background:rgb(41, 29, 29);
     box-shadow: 0px 0px 15px inset rgba(17, 3, 5, .5)
+}
+
+#item-total {
+    position:absolute;
+    bottom:-55px;
+    height:50px;
+    padding:10px;
+    border-top:rgb(78, 62, 58) solid 2px;
+    background: rgb(22, 14, 17);
+    left:0px;
+    width:100%;
+    display:none;
+}
+
+#item-total p {
+    position:relative;
+    display:inline-block;
+    padding:5px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+#item-total-title {
+    width:25%;
+    border-right:rgb(103, 73, 64) solid 2px;
+}
+
+#item-total-val {
+    width:50%;
+    text-align:center;
+    border-right:rgb(103, 73, 64) solid 2px;
+}
+
+#item-total-qty {
+    width:25%;
+    text-align:center;
 }
 
 #inv-buttons {
@@ -129,11 +165,11 @@ button {
 
     #inventory {
         right:60px;
-        top: 155px;
+        top: 125px;
     }
     
     #inv-buttons {
-        top:-150px;
+        top:-120px;
         width:50px;
         right:-55px;
     }
@@ -147,7 +183,7 @@ button {
     #trash {
         top: 55px;
     }
-    
+
     #info {
         bottom:0px;
     }
