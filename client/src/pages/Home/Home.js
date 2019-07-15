@@ -115,7 +115,6 @@ class Home extends Component {
             });
         }
 
-        this.calcTotal();
     }
 
     addQty = () => {
