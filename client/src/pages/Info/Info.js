@@ -61,6 +61,16 @@ class Info extends Component {
                     in the future.
 
                 </p>
+                <hr />
+                <h2>How does this app store data?</h2>
+                <p className = "info-desc">
+                    This app uses local storage to store the item data. For those who aren't in the know: 
+                    local storage is specific to the browser and device the app is running on. You can't, 
+                    for example, create and store an item on your phone and expect to find it on your desktop. 
+                    Similarly, you can't create and store an item on Safari and have it carry over to Google Chrome or Firefox.
+                    In order for that to work, there would have to be a login page where you'd enter a username and password. As a tech-savvy millennial,
+                    I, personally, find Login functionality to be anti-consumer. Moreso than local storage might be.
+                </p>
 
 
                 <hr />
