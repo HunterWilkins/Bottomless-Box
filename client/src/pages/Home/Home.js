@@ -1,8 +1,5 @@
 import React, {Component} from "react";
-import {Redirect} from "react-router-dom";
 import "./style.css";
-
-
 import Pocketbook from "../../components/Pocketbook";
 import Modal from "../../components/Modal";
 import Inventory from "../../components/Inventory";
@@ -10,54 +7,40 @@ import Info from "../Info/Info";
 
 class Home extends Component {
     state = {
-        modal: false,
-        modalType: "inventory",
+        modal: false, // Is the modal displayed?
+        modalType: "inventory", // Where is the modal being displayed from?
+        
+        // Temporary Storage for item information. Used for Modal placeholders and Item Submission via HandleInputChange
         itemName: "",
         itemVal: "",
         itemQty: 0,
         itemId: "",
         itemType: "",
+        // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
 
-        theme: "Brown",
         total: "",
-
-        invScreen: "All"
+        invScreen: "All" // Which pocket is the user in?
     }
 
-    firstTime;
-    inventory = [];
-    pockets = [];
+    firstTime; // Is it the user's first time using the app? Is set and decided via localStorage.
+    inventory = []; // Array of items stored as objects (name, value, quantity, id, type)
+    pockets = []; // Array of pockets stored as strings
 
-    colorSchemes = {
-        Blue: {
-            background: "rgb(28,32,32)",
-            color: "rgb(198, 253, 247)",
-            ultraBackground: {
-                background: "rgb(6,7,15)"
-            }
-        },
-        Brown: {
-            background: "rgb(32,28,28)",
-            color: "rgb(253, 214, 198)"
-        },
-        Green: {
-            background: "rgb(28, 32, 28)",
-            color: "rgb(226, 253, 198)"
-        }
-    }
-
-    updateStorage = () => {
-        let newId = 0;
+    updateStorage = () => { // Overwrites the old info stored in LocalStorage. 
+        
+        // Resets all the ids of all items within the inventory array to account for any items that might've been deleted.
+        let newId = 0; 
         this.inventory.forEach(item => {
             item.id = newId;
             newId++;
         });
+        // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
 
         localStorage.setItem("inventory", JSON.stringify(this.inventory));
         localStorage.setItem("pockets", JSON.stringify(this.pockets));
     }
     
-    componentWillMount = () => {
+    componentWillMount = () => { // Takes the localStorage inventory/pocket arrays and adds all items from them into their respective program arrays.
         let localInv = JSON.parse(localStorage.getItem("inventory"));
         if (localInv){
             localInv.forEach(item => {
@@ -72,16 +55,18 @@ class Home extends Component {
             });
         }
 
+        // Simply checks if this is the user's first time using the Bottomless Box
         let firstTime = JSON.parse(localStorage.getItem("firstTime"));
         if (!firstTime) {
             this.firstTime = true;
         }
+        // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
     }
 
-    toggleModal = (type, infoObject, pocket ) => {
+    toggleModal = (type, infoObject, pocket ) => { // Toggles the display for the Modal based on which button was activated
         this.setState({modal:!this.state.modal});
 
-        if (type === "pocket"){
+        if (type === "pocket"){ // "Create Pocket" Modal
             this.setState(
                 {
                     modalType:"pocket"
@@ -89,7 +74,7 @@ class Home extends Component {
             );
         }
 
-        else if (type === "item") {
+        else if (type === "item") { // "Update Item" Modal
             this.setState({
                 itemName: infoObject.name,
                 itemVal: infoObject.value,
@@ -99,40 +84,22 @@ class Home extends Component {
             });
         }
 
-        else if (type === "inventory") {
+        else if (type === "inventory") { // "New Item" Modal
             this.setState({
-                modalType: "inventory",
-                itemName: null,
-                itemVal: " ",
-                itemQty: " ",
-                itemId: " " 
-            });
-        }
-
-        else if (type === "settings") {
-            this.setState({
-                modalType: "settings"
-            });
-        }
-
-    }
-
-    addQty = () => {
-        if (this.state.itemQty === "") {
-            this.setState({
-                itemQty: 1
-            });
-        }
-        else {
-            let oldValue = parseInt(this.state.itemQty);
-            let newValue = oldValue + 1;
-            this.setState({
-                itemQty: newValue
+                modalType: "inventory"
             });
         }
     }
 
-    subQty = () => {
+    addQty = () => { // Adds 1 to the quantity value of the selected item
+        let oldValue = parseInt(this.state.itemQty);
+        let newValue = oldValue + 1;
+        this.setState({
+            itemQty: newValue
+        });
+    }
+
+    subQty = () => { // Subtracts 1 from the quantity value of the selected item, provided it's a nonzero, positive value
         if (this.state.itemQty !== 0 && this.state.itemQty !== "") {
             let oldValue = parseInt(this.state.itemQty);
             let newValue = oldValue - 1;
@@ -142,7 +109,7 @@ class Home extends Component {
         }
     }
 
-    calcTotal = () => {
+    calcTotal = () => { // Calculates the total value of all items within the inventory array of the specified type
         let calcTotal = 0;
 
         if (this.state.invScreen === "All") {
@@ -166,7 +133,7 @@ class Home extends Component {
         })
     }
 
-    toggleInv = (pocketName) => {
+    toggleInv = (pocketName) => { // Toggles the inventory component to reflect the current pocket
         this.setState({
             invScreen: pocketName
         });
@@ -180,9 +147,10 @@ class Home extends Component {
         });
     };
 
-    create = () => {
+    create = () => { // Create Item function
+        
+        // If the current item exists already in the array, run the update function. Else, create a new item.
         let repeat;
-
 
         this.inventory.forEach(item => {
             if (item.id === this.state.itemId) {
@@ -198,7 +166,6 @@ class Home extends Component {
                 type: this.state.invScreen,
                 id: this.inventory.length
             }
-
             
             this.inventory.push(newItem);
             this.updateStorage();
@@ -216,22 +183,20 @@ class Home extends Component {
         this.toggleModal("inventory", "");
     }
 
-    logState = () => {
-        console.log(this.state);
-    }
-
     makePocket = (newItemType) => {
+        
         if (this.pockets.indexOf(newItemType) === -1) {
             this.pockets.push(newItemType);
         }
+
         this.updateStorage();
         this.toggleModal("inventory");
         this.toggleInv(newItemType);
     }
 
-    deletePocket = () => {
+    deletePocket = () => { // Sidebar Trash Icon functionality
         
-        if (this.state.invScreen === "All") {
+        if (this.state.invScreen === "All") { // Wipe inventory and pocket information after confirmation
             let confirmation = window.confirm("Are you sure that you want to delete all of your items?");
             if (confirmation) {
                 this.inventory = [];
@@ -239,7 +204,7 @@ class Home extends Component {
             }
         }
 
-        else {
+        else { // Add items that AREN'T the item type to be deleted into an array and overwrite the original array
             let newArray = [];
             for (var i = 0; i < this.inventory.length; i++) {
                 let item = this.inventory[i];
@@ -249,7 +214,7 @@ class Home extends Component {
             };
             this.inventory = newArray;
 
-            this.pockets.splice((this.pockets.indexOf(this.state.invScreen)), 1);
+            this.pockets.splice((this.pockets.indexOf(this.state.invScreen)), 1); // Delete relevant pocket
         }
 
         this.updateStorage();
@@ -258,7 +223,7 @@ class Home extends Component {
         });
     }
 
-    update = (id) => {
+    update = (id) => { // Overwrites the relevant info of the item within the inventory array with the state item's same id
         this.inventory.forEach(item => {
             if (item.id === id){
                 item.name = this.state.itemName;
@@ -270,7 +235,7 @@ class Home extends Component {
         this.updateStorage();
     };
 
-    delete = () => {
+    delete = () => { // "Item" Modal type Trash Icon functionality
         this.inventory.forEach(item => {
             if (item.id === this.state.itemId) {
                 this.inventory.splice(this.inventory.indexOf(item), 1);
