@@ -4,6 +4,7 @@
   "description": "The Bottomless Box is a simple tool that utilizes Local Storage to save information regarding your household items. It's primarily used for inventory management.",
   "main": "server.js",
   "dependencies": {
+    "express": "^4.17.1",
     "node": "^12.10.0"
   },
   "devDependencies": {},
