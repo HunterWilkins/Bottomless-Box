@@ -19,7 +19,8 @@ class Home extends Component {
         // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
 
         total: "",
-        invScreen: "All" // Which pocket is the user in?
+        invScreen: "All", // Which pocket is the user in?
+        localInventory: JSON.parse(localStorage.getItem("inventory"))
     }
 
     firstTime; // Is it the user's first time using the app? Is set and decided via localStorage.
@@ -107,30 +108,6 @@ class Home extends Component {
                 itemQty: newValue
             });
         }
-    }
-
-    calcTotal = () => { // Calculates the total value of all items within the inventory array of the specified type
-        let calcTotal = 0;
-
-        if (this.state.invScreen === "All") {
-            this.inventory.forEach(item => {
-                calcTotal += parseFloat(item.value * item.quantity);
-            });
-
-            alert("All of your items add up to: $" + calcTotal.toFixed(2))
-        }
-        else {
-            this.inventory.forEach(item => {
-                if (item.type === this.state.invScreen) {
-                    calcTotal += parseFloat(item.value * item.quantity);
-                }
-            });
-
-            alert("All of the items in your " + this.state.invScreen + " pocket add up to $" + calcTotal.toFixed(2));
-        }
-        this.setState({
-            total: calcTotal.toFixed(2)
-        })
     }
 
     toggleInv = (pocketName) => { // Toggles the inventory component to reflect the current pocket
@@ -300,6 +277,7 @@ class Home extends Component {
                         theme = {this.state.theme}
 
                         total = {this.state.total}
+                        localInventory = {this.state.localInventory}
     
                     />
                 </div>

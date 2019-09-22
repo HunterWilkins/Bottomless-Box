@@ -5,6 +5,7 @@ function Pocket(props) {
 
     let styles = {
         background: "url('/images/" + props.name + ".png')",
+        backgroundSize: "80px"
     }
 
     if (props.func === "add") {
@@ -12,7 +13,7 @@ function Pocket(props) {
             <div className = "pocket" onClick = {() => {props.toggleModal("pocket", null)}}>
                 <h1>+</h1>
             </div>
-        )
+        );
     }
 
     else if (props.func === "modal") {

@@ -6,6 +6,8 @@ import {Link} from "react-router-dom";
 function Inventory(props) {
     let filteredInv;
 
+    let total;
+
     if (props.invScreen === "All") {
         filteredInv = props.inventory;
     }
@@ -13,12 +15,23 @@ function Inventory(props) {
         filteredInv = props.inventory.filter(item => item.type === props.invScreen);
     }
 
+    calcTotal();
+    function calcTotal() {
+        total = 0;
+        filteredInv.forEach(function(item){
+            total += parseFloat(item.value) * parseFloat(item.quantity);
+        });
+        total = total.toFixed(2);
+    }
+    
+
 
     return(
     <div id = "inventory">
-        <h1 id = "inv-title">{props.invScreen}</h1>
+        <h3 id = "inv-title">{props.invScreen}</h3>
+        <p id = "inv-total">${total}</p>
     
-        <Item toggleModal = {props.toggleModal} type = "legend" name = "Name" value = "$" qty = "#"/>
+        <Item toggleModal = {props.toggleModal} type = "legend" name = "Name" value = "$" qty = "#" total = "Total"/>
         <div id = "items">
             {filteredInv.map(item =>{
                 return(
@@ -28,6 +41,7 @@ function Inventory(props) {
                         qty = {item.quantity}
                         id = {item.id}
                         type = {item.type}
+                        total = {parseFloat(item.quantity) * parseFloat(item.value)}
                     />
                 );
             })}
@@ -43,22 +57,16 @@ function Inventory(props) {
             <button  id = "trash" onClick = {() => {props.deletePocket()}}>
                 <p>🗑</p>
             </button>
-            <Link to="/info">
-                <button id = "info">
-                    <p>?</p>
-                </button>
+            <Link id = "info" to="/info">
+                <p>?</p>
             </Link>
-            <button id = "total" onClick = {() => {props.calcTotal()}}>
-                <p>
-                $
-                </p>
-            </button>
+
             <button id = "settings" onClick = {() => {props.toggleModal("settings", null)}}>
                 <p>
                 ⚙
                 </p>
             </button>
-            <button id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "block" : "none"}}>
+            <button id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "inline-block" : "none"}}>
                 <p>+</p>
             </button>
             {/* <button className = "symbol-btn">x</button> */}

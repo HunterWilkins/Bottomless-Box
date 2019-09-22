@@ -16,6 +16,7 @@ function Item(props) {
                 <p className = "item-name">{props.name}</p>
                 <p className = "item-value">{props.value}</p>
                 <p className = "item-qty">{props.qty}</p>
+                <p className = "item-total">{props.total}</p>
             </div>
         )
     }
@@ -24,8 +25,9 @@ function Item(props) {
         return (
             <div className = "item" onClick = {props.toggleModal}>
                 <p className = "item-name">{props.name}</p>
-                <p className = "item-value">{props.value}</p>
+                <p className = "item-value"><span className = "half-opacity">$</span>{props.value}</p>
                 <p className = "item-qty">{props.qty}</p>
+                <p className = "item-total"><span className = "half-opacity">$</span>{props.total}</p>
             </div>
         );
     }

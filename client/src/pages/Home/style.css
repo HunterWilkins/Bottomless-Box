@@ -5,8 +5,7 @@
 body {
     color:rgb(253, 214, 198);
     background: rgb(22, 14, 17);
-    font-size:20px;
-    overflow:hidden;
+    font-size:18px;
     position:fixed;
     top:0;
     left:0;
@@ -32,27 +31,30 @@ button {
 }
 
 #dashboard {
-    padding:15px;
+    padding: 0px 10px;
     background:rgb(47, 36, 36);
     overflow-x: scroll;
     -webkit-overflow-scrolling:touch;
     overflow-y:hidden;
     white-space:nowrap;
-    height:130px;
+    height: 100px;
     width:100vw;
-    position:relative;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
 }
 
-#dashboard > * {
+#dashboard > div {
     display:inline-block;
-    position:relative;
     top:50%;
     transform:translateY(-50%);
+    position: relative;
 }
 
 #inventory {
-    position:absolute;
-    top:135px;
+    position:fixed;
+    top:105px;
     bottom:10px;
     left:0;
     right:80px;
@@ -98,14 +100,16 @@ button {
 }
 
 #inv-buttons {
-    position:absolute;
-    top: 0px;
+    padding: 5px;
+    position:fixed;
+    top: 105px;
     bottom:0;
-    right:-75px;
+    right:8px;
     width:70px;
 }
 
-#inv-buttons button {
+#inv-buttons > * {
+    display:inline-block;
     width:70px;
     height:70px;
     margin-bottom:5px;
@@ -121,7 +125,7 @@ button {
     position:absolute;
 }
 
-#inv-buttons button p {
+#inv-buttons >* p {
     position:absolute;
     transform:translate(-50%, -50%);
     top:50%;
@@ -154,7 +158,46 @@ button {
     display:none;
 }
 
-@media only screen and (max-height: 530px){
+@media only screen and (max-width: 400px) {
+    #inventory {
+        right: 0;
+        bottom: 80px;
+    }
+
+    #inv-buttons {
+        top:initial;
+        left:0;
+        right: 0;
+        width: 100vw;
+        height: 80px;
+        text-align:center;
+    }
+
+    #inv-buttons > * {
+        transform: translateY(-30px);
+        top: 30px;
+        margin-right: 5px;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        left: initial;
+        right: initial;
+        bottom: initial;
+    }
+
+    #settings {
+        display:none;
+    }
+
+    #inv-buttons a {
+        top: 36px;
+        text-decoration: none;
+        z-index: 10;
+    }
+}
+
+@media screen and (max-height: 530px) and (min-width: 401px){
 
     #dashboard {
         width:initial;
@@ -165,16 +208,15 @@ button {
 
     #inventory {
         right:60px;
-        top: 135px;
+        top: 105px;
     }
     
     #inv-buttons {
-        top:-130px;
+        top:5px;
         width:50px;
-        right:-55px;
     }
 
-    #inv-buttons button {
+    #inv-buttons > * {
         width:50px;
         height:50px;
         font-size:15px;

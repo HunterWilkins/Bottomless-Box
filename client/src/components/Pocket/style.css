@@ -1,14 +1,12 @@
 .pocket {
     cursor:pointer;
-    width:100px;
-    height:100px;
+    width:80px;
+    height:80px;
     box-shadow:0 5px 5px rgb(30, 17, 15);
     background:rgb(103, 73, 64);
     border-radius:5px;
     text-align:center;
     overflow:hidden;
-
-    display:inline-block;
     margin:5px;
     position:relative;
 }
