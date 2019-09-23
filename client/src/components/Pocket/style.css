@@ -9,6 +9,7 @@
     overflow:hidden;
     margin:5px;
     position:relative;
+    display:inline-block;
 }
 
 .pocket h1, .pocket h2 {
