@@ -108,19 +108,21 @@ button {
 }
 
 #inv-buttons > * {
+    cursor:pointer;
     display:inline-block;
     width:70px;
     height:70px;
     border:none;
-    padding:none;
+    padding:0;
     border-radius:4px;
+    font-size: 30px;
 
     text-align:center;
 
     background:rgb(103, 73, 64);
     color:inherit;
 
-    position:absolute;
+    position:relative;
 }
 
 #inv-buttons >* p {
@@ -128,26 +130,6 @@ button {
     transform:translate(-50%, -50%);
     top:50%;
     left:50%;
-}
-
-#add-btn {
-    top:0px;
-    font-size:30px;
-}
-
-#trash {
-    top:75px;
-    font-size:30px;
-}
-
-#info {
-    bottom:0px;
-    font-size:30px;
-}
-
-#total {
-    top:150px;
-    font-size:30px;
 }
 
 #settings {
@@ -246,16 +228,4 @@ button {
     #info {
         bottom:0px;
     }
-
-    #total {
-        top: 110px;
-    }
-
-    #settings {
-        top:165px;
-    }
 }
-/* 
-.symbol-btn {
-    font-size:30px;
-} */
