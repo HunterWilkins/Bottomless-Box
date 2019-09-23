@@ -181,7 +181,7 @@
 
     #modal input {
         width: 48%;
-        margin-right: 5px;
+        margin: 0 2px;
         padding: 10px;
     }
 }
