@@ -169,6 +169,7 @@ button {
         width: 100vw;
         height: 70px;
         text-align:center;
+        display:flexbox;
     }
 
     #inv-buttons > * {
@@ -188,6 +189,7 @@ button {
     #add-btn, #trash, #info{
         transform: translateY(-50%);
         top: 50%;
+        bottom: initial;
     }
 
     #settings {
