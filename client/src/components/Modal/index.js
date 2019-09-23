@@ -41,19 +41,24 @@ function Modal(props) {
                 <input onChange = {props.handleInputChange} name = "itemVal" id = "modal-value" type = "number" placeholder = {props.itemVal} ></input>
                 <div id = "qty-editors-div">
                 <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "number" placeholder = {props.itemQty} ></input>
-
-                <button className = "qty-editor" id = "addition-btn" onClick = {() => {props.addQty()}}>
+                <div id = "qty-buttons">
+                    <button className = "qty-editor" id = "addition-btn" onClick = {() => {props.addQty()}}>
                     <p>
                         +
                     </p>
                     </button>
-                <button className = "qty-editor" onClick = {() => {props.subQty()}}>
+                    
+                    <button className = "qty-editor" onClick = {() => {props.subQty()}}>
                     <p>
                         -
                     </p>
                     </button>
                 </div>
-                <button id = "modal-submit" onClick = {props.create}>Submit</button>
+                </div>
+        
+                <button id = "modal-submit" onClick = {props.create}>
+                    <p>Submit</p>
+                </button>
                 <button className = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
                         X
@@ -83,7 +88,9 @@ function Modal(props) {
                 <input onChange = {props.handleInputChange}  name = "itemQty" id = "modal-qty" type = "number" placeholder = "Quantity" ></input>
                 {/* <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>
                 <button className = "qty-editor" onClick = {() => {props.subQty()}}>-</button> */}
-                <button id = "modal-submit" onClick = {props.create}>Submit</button>
+                <button id = "modal-submit" onClick = {props.create}>                    
+                    <p>Submit</p>
+                </button>
                 <button className = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
                     X

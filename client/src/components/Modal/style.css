@@ -70,7 +70,6 @@
     border-right:rgb(47, 29, 22) solid 2px;
     border-left:rgb(47, 29, 22) solid 2px;
     color:rgb(253, 214, 198);
-
 }
 
 #modal-name, #modal-value {
@@ -78,15 +77,25 @@
 }
 
 #modal-qty {
-    width:150px;
+    width:48%;
     left:0;
 }
 
 #modal-submit{
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0;
+    height: 50px;
+    position: absolute;
     font-size:20px;
-    width:70%;
+    width:60%;
     margin:0 auto;
     padding:15px;
+}
+
+
+#modal-submit p {
+    position: absolute
 }
 
 #modal h1 {
@@ -94,23 +103,21 @@
     padding:5px;
 }
 
-.modal-close {
+.modal-close, #modal-trash {
     position:absolute;
     bottom:0;
-    right:0;
     width:50px;
     height:50px;
     font-size:20px;
     z-index:10;
 }
 
+.modal-close {
+    right:0;
+}
+
 #modal-trash {
-    position:absolute;
-    bottom:0;
     left:0;
-    width:50px;
-    height:50px;
-    font-size:20px;
 }
 
 #qty-editors-div {
@@ -126,6 +133,13 @@
     transform:translateY(-50%);
 }
 
+#qty-buttons {
+    right: 0;
+    width: 48%;
+    text-align:center;
+}
+
+
 .qty-editor {
     display:inline-block;
     margin:0 5px;
@@ -133,11 +147,6 @@
     height:50px;
     width:50px;
     position:relative;
-    left:205px;
-}
-
-#addition-btn {
-    left:150px;
 }
 
 .qty-editor p {
@@ -173,14 +182,5 @@
         width: 48%;
         margin-right: 5px;
         padding: 10px;
-    }
-
-    #modal-submit {
-        width:50%;
-        height:50px;
-        position:absolute;
-        bottom:0px;
-        left:50%;
-        transform: translateX(-50%);
     }
 }

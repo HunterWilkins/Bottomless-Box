@@ -161,7 +161,7 @@ button {
 @media only screen and (max-width: 400px) {
     #inventory {
         right: 0;
-        bottom: 80px;
+        bottom: 70px;
     }
 
     #inv-buttons {
@@ -169,14 +169,14 @@ button {
         left:0;
         right: 0;
         width: 100vw;
-        height: 80px;
+        height: 70px;
         text-align:center;
     }
 
     #inv-buttons > * {
-        transform: translateY(-30px);
-        top: 30px;
-        margin-right: 5px;
+        transform: translateY(-50%);
+        top: 50%;
+        margin: 0 5px;
         display: inline-block;
         width: 60px;
         height: 60px;
@@ -184,6 +184,7 @@ button {
         left: initial;
         right: initial;
         bottom: initial;
+        padding: 0;
     }
 
     #settings {
@@ -191,9 +192,7 @@ button {
     }
 
     #inv-buttons a {
-        top: 36px;
         text-decoration: none;
-        
     }
 }
 
