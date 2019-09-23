@@ -100,11 +100,10 @@ button {
 }
 
 #inv-buttons {
-    padding: 5px;
     position:fixed;
     top: 105px;
     bottom:0;
-    right:8px;
+    right:5px;
     width:70px;
 }
 
@@ -112,7 +111,6 @@ button {
     display:inline-block;
     width:70px;
     height:70px;
-    margin-bottom:5px;
     border:none;
     padding:none;
     border-radius:4px;
@@ -185,6 +183,11 @@ button {
         right: initial;
         bottom: initial;
         padding: 0;
+    }
+
+    #add-btn, #trash, #info{
+        transform: translateY(-50%);
+        top: 50%;
     }
 
     #settings {
