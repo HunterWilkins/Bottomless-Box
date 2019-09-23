@@ -57,8 +57,8 @@ function Inventory(props) {
             <button  id = "trash" onClick = {() => {props.deletePocket()}}>
                 <p>🗑</p>
             </button>
-            <Link id = "info" to="/info">
-                <p>?</p>
+            <Link id = "info" to = "info">                    
+                    <p>?</p>
             </Link>
 
             <button id = "settings" onClick = {() => {props.toggleModal("settings", null)}}>

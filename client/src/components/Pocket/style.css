@@ -33,3 +33,11 @@
 
     background:rgba(30, 17, 15, .75);
 }
+
+@media screen and (max-height: 530px) and (min-width: 401px){
+
+    .pocket {
+        display: inline-block;
+    }
+
+}

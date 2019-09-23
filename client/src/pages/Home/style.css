@@ -193,22 +193,35 @@ button {
     #inv-buttons a {
         top: 36px;
         text-decoration: none;
-        z-index: 10;
+        
     }
 }
 
 @media screen and (max-height: 530px) and (min-width: 401px){
 
     #dashboard {
-        width:initial;
-        position:absolute;
-        right:60px;
-        left:0px;
+        width: 100px;
+        position:fixed;
+        right:0;
+        top: 0;
+        bottom: 0;
+        height: initial;
+        overflow-y: scroll;
+        padding: 0;
+        white-space: initial;
+        height: 100vh;
+    }
+
+    #dashboard > div {
+        transform: translateX(50px);
+        top: initial;
+        right: 50px;
     }
 
     #inventory {
         right:60px;
-        top: 105px;
+        left: 105px;
+        top: 10px;
     }
     
     #inv-buttons {
