@@ -220,12 +220,4 @@ button {
         height:50px;
         font-size:15px;
     }
-
-    #trash {
-        top: 55px;
-    }
-
-    #info {
-        bottom:0px;
-    }
 }
