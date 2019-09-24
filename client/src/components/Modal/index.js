@@ -30,7 +30,7 @@ function Modal(props) {
                 <Pocket func = "modal" name = "Pet Supplies" makePocket = {props.makePocket} />
                 <Pocket func = "modal" name = "Misc" makePocket = {props.makePocket} />
                 </div>
-                <button className = "modal-close" onClick = {() => {props.toggleModal("pocket", null)}}>
+                <button className = "modal-close modal-button" onClick = {() => {props.toggleModal("pocket", null)}}>
                     <p>
                     X
                     </p>
