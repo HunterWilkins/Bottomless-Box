@@ -9,8 +9,7 @@ function Modal(props) {
     if (props.shopping === true) {
         isShoppingStyle = {    
             background: "rgb(103, 73, 64)",
-            border: "rgb(45, 32, 30) solid 2px",
-            boxShadow : "0 0px 0px 2px rgb(216, 180, 152)"
+            border: "rgb(216, 180, 152) solid 2px",
         }
     }
 
