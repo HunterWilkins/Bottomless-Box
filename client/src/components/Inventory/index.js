@@ -39,7 +39,7 @@ function Inventory(props) {
         filteredInv.forEach(function(item){
             total += parseFloat(item.value) * parseFloat(item.quantity);
         });
-        total = total.toFixed(2);
+        total = parseFloat(total.toFixed(2));
     }
 
     return(
@@ -57,7 +57,7 @@ function Inventory(props) {
                         qty = {item.quantity}
                         id = {item.id}
                         type = {item.type}
-                        total = {parseFloat(item.quantity) * parseFloat(item.value)}
+                        total = {parseFloat(parseFloat(item.quantity) * parseFloat(item.value)).toFixed(2)}
                     />
                 );
             })}

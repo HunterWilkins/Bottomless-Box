@@ -164,6 +164,8 @@ class Home extends Component {
                 shopping: this.state.shopping
             }
             
+            console.log(newItem);
+            
             this.inventory.push(newItem);
             this.updateStorage();
         }
