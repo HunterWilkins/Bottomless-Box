@@ -6,6 +6,7 @@ import Inventory from "../../components/Inventory";
 import Info from "../Info/Info";
 
 class Home extends Component {
+
     state = {
         modal: false, // Is the modal displayed?
         modalType: "inventory", // Where is the modal being displayed from?
@@ -17,6 +18,11 @@ class Home extends Component {
         itemId: "",
         itemType: "",
         // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
+
+        // Shopping List Mode =/=/=/=/=/=/=/=/=/=/=/=/=/=/
+        shopping: false,
+        shoppingList: false,
+        // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=
 
         total: "",
         invScreen: "All", // Which pocket is the user in?
@@ -34,6 +40,10 @@ class Home extends Component {
         this.inventory.forEach(item => {
             item.id = newId;
             newId++;
+
+            if (item.quantity === 0) {
+                item.shopping = true;
+            }
         });
         // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
 
@@ -41,7 +51,7 @@ class Home extends Component {
         localStorage.setItem("pockets", JSON.stringify(this.pockets));
     }
     
-    componentWillMount = () => { // Takes the localStorage inventory/pocket arrays and adds all items from them into their respective program arrays.
+    UNSAFE_componentWillMount = () => { // Takes the localStorage inventory/pocket arrays and adds all items from them into their respective program arrays.
         let localInv = JSON.parse(localStorage.getItem("inventory"));
         if (localInv){
             localInv.forEach(item => {
@@ -90,6 +100,9 @@ class Home extends Component {
                 modalType: "inventory"
             });
         }
+
+        console.log(this.state.shopping);
+        console.log(this.state.shoppingList);
     }
 
     addQty = () => { // Adds 1 to the quantity value of the selected item
@@ -108,6 +121,12 @@ class Home extends Component {
                 itemQty: newValue
             });
         }
+    }
+
+    toggleShopping = () => {
+        this.setState({
+            shopping: !this.state.shopping
+        });
     }
 
     toggleInv = (pocketName) => { // Toggles the inventory component to reflect the current pocket
@@ -141,12 +160,14 @@ class Home extends Component {
                 value: this.state.itemVal,
                 quantity: this.state.itemQty,
                 type: this.state.invScreen,
-                id: this.inventory.length
+                id: this.inventory.length,
+                shopping: this.state.shopping
             }
             
             this.inventory.push(newItem);
             this.updateStorage();
         }
+
         else {
             this.update(this.state.itemId);
         }
@@ -206,6 +227,7 @@ class Home extends Component {
                 item.name = this.state.itemName;
                 item.value = this.state.itemVal;
                 item.quantity = this.state.itemQty;
+                item.shopping = this.state.shopping;
             }
         });
 
@@ -222,6 +244,14 @@ class Home extends Component {
 
         this.toggleModal();
     };
+
+    toggleShoppingList = () => {
+
+        this.setState({
+            shoppingList: !this.state.shoppingList,
+            shopping: !this.state.shoppingList
+        });
+    }
 
 
     render(){
@@ -240,6 +270,11 @@ class Home extends Component {
                     delete = {this.delete}
                     addQty = {this.addQty}
                     subQty = {this.subQty}
+
+                    shopping = {this.state.shopping}
+                    shoppingList = {this.state.shoppingList}
+                    toggleShopping = {this.toggleShopping}
+                    toggleShoppingList = {this.toggleShoppingList}
 
                     makePocket = {this.makePocket}
 
@@ -278,7 +313,13 @@ class Home extends Component {
 
                         total = {this.state.total}
                         localInventory = {this.state.localInventory}
-    
+
+                        shopping = {this.state.shopping}
+
+                        shoppingList = {this.state.shoppingList}
+
+                        toggleShopping = {this.toggleShopping}
+                        toggleShoppingList = {this.toggleShoppingList}
                     />
                 </div>
             )

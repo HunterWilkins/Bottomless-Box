@@ -4,6 +4,16 @@ import Pocket from "../Pocket";
 
 function Modal(props) {
 
+    let isShoppingStyle = {}
+
+    if (props.shopping === true) {
+        isShoppingStyle = {    
+            background: "rgb(103, 73, 64)",
+            border: "rgb(45, 32, 30) solid 2px",
+            boxShadow : "0 0px 0px 2px rgb(216, 180, 152)"
+        }
+    }
+
     if (props.type === "pocket"){
         return(
             <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
@@ -38,37 +48,47 @@ function Modal(props) {
             <div id = "modal" val = {props.itemId}>
             <p className = "modal-title">~ Edit Item ~</p>
                 <input onChange = {props.handleInputChange} name = "itemName" id = "modal-name" type = "text" placeholder = {props.itemName}></input>
+                
+                <div className = "modal-button" id = "isShopping" style = {isShoppingStyle} onClick = {() => {props.toggleShopping()}}>
+                    <p>
+                        🛒
+                    </p>
+                </div>        
+
                 <input onChange = {props.handleInputChange} name = "itemVal" id = "modal-value" type = "number" placeholder = {props.itemVal} ></input>
                 <div id = "qty-editors-div">
                 <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "number" placeholder = {props.itemQty} ></input>
                 <div id = "qty-buttons">
-                    <button className = "qty-editor" id = "addition-btn" onClick = {() => {props.addQty()}}>
+                    <div className = "qty-editor modal-button" id = "addition-btn" onClick = {() => {props.addQty()}}>
                     <p>
                         +
                     </p>
-                    </button>
+                    </div>
                     
-                    <button className = "qty-editor" onClick = {() => {props.subQty()}}>
+                    <div className = "qty-editor modal-button" onClick = {() => {props.subQty()}}>
                     <p>
                         -
                     </p>
-                    </button>
+                    </div>
                 </div>
+
                 </div>
+
+                
         
-                <button id = "modal-submit" onClick = {props.create}>
+                <div className = "modal-button" id = "modal-submit" onClick = {props.create}>
                     <p>Submit</p>
-                </button>
-                <button className = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
+                </div>
+                <div className = "modal-close modal-button" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
                         X
                     </p>
-                </button>
-                <button id = "modal-trash" onClick = {() => {props.delete()}}>
+                </div>
+                <div className = "modal-button" id = "modal-trash" onClick = {() => {props.delete()}}>
                     <p>
                     🗑
                     </p>
-                </button>
+                </div>
                 
             </div>
             </div>
@@ -88,19 +108,26 @@ function Modal(props) {
                 <input onChange = {props.handleInputChange}  name = "itemQty" id = "modal-qty" type = "number" placeholder = "Quantity" ></input>
                 {/* <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>
                 <button className = "qty-editor" onClick = {() => {props.subQty()}}>-</button> */}
-                <button id = "modal-submit" onClick = {props.create}>                    
+                
+                <div className = "modal-button" id = "isShopping" style = {isShoppingStyle} onClick = {() => {props.toggleShopping()}}>
+                    <p>
+                        🛒
+                    </p>
+                </div>        
+                
+                <div id = "modal-submit" className = "modal-button" onClick = {props.create}>                    
                     <p>Submit</p>
-                </button>
-                <button className = "modal-close" onClick = {() => {props.toggleModal("inventory", null)}}>
+                </div>
+                <div className = "modal-close modal-button" onClick = {() => {props.toggleModal("inventory", null)}}>
                     <p>
                     X
                     </p>
-                </button>
-                <button id = "modal-trash" onClick = {() => {props.delete()}}>
+                </div>
+                <div id = "modal-trash" className = "modal-button" onClick = {() => {props.delete()}}>
                     <p>
                     🗑
                     </p>
-                    </button>
+                </div>
                 
             </div>
             </div>

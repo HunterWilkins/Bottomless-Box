@@ -6,13 +6,31 @@ import {Link} from "react-router-dom";
 function Inventory(props) {
     let filteredInv;
 
+    let isActive = {}
+
+    if (props.shoppingList) {
+        isActive = {
+            background: "rgb(47, 29, 22)",
+            border: "rgb(125, 78, 60) solid 2px"
+        }
+    }
+
     let total;
 
-    if (props.invScreen === "All") {
-        filteredInv = props.inventory;
+    if (props.invScreen === "All" && props.shoppingList !== true) {
+        filteredInv = props.inventory.filter(item => !item.shopping);
     }
+
+    else if (props.invScreen === "All" && props.shoppingList) {
+        filteredInv = props.inventory.filter(item => item.shopping === true);
+    }
+
+    else if (props.shoppingList === true) {
+        filteredInv = props.inventory.filter(item => item.shopping === true && item.type === props.invScreen);
+    }
+
     else {
-        filteredInv = props.inventory.filter(item => item.type === props.invScreen);
+        filteredInv = props.inventory.filter(item => item.type === props.invScreen && !item.shopping);
     }
 
     calcTotal();
@@ -23,8 +41,6 @@ function Inventory(props) {
         });
         total = total.toFixed(2);
     }
-    
-
 
     return(
     <div id = "inventory">
@@ -64,6 +80,12 @@ function Inventory(props) {
             <Link id = "info" to = "info">                    
                     <p>?</p>
             </Link>
+
+            <div id = "toggle-shopping-list" style = {isActive} onClick = {() => {props.toggleShoppingList()}}>
+                <p>
+                    🛒
+                </p>
+            </div>
 
             <div id = "settings" onClick = {() => {props.toggleModal("settings", null)}}>
                 <p>

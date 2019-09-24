@@ -38,27 +38,30 @@
 
 }
 
-#modal button{
+.modal-button{
     /* border-top:rgb(152, 118, 98) solid 2px;
     border-left:rgb(152, 118, 98) solid 2px;
     border-bottom:rgb(34, 18, 15) solid 2px;
     border-right:rgb(34, 18, 15) solid 2px; 
     */
+    cursor:pointer;
+    position: relative;
     border:rgb(103, 73, 64) solid 2px;
     border-radius:5px;
     background:rgb(45, 32, 30);
     color:rgb(216, 180, 152);
 }
 
-#modal button:hover{
+.modal-button:hover{
     border-color:rgb(216, 180, 152);
 }
 
-#modal button p {
+.modal-button p {
     transform: translate(-50%, -50%);
     position:absolute;
     top:50%;
     left:50%;
+    font-size: 26px;
 }
 
 #modal input {
@@ -73,7 +76,7 @@
     color:rgb(253, 214, 198);
 }
 
-#modal-name, #modal-value {
+#modal-value {
     width:100%;
 }
 
@@ -82,21 +85,28 @@
     left:0;
 }
 
+#isShopping {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 50px;
+    height: 50px;
+}
+
 #modal-submit{
     transform: translateX(-50%);
-    left: 50%;
+    right: 0px;
     bottom: 0;
     height: 50px;
     position: absolute;
-    font-size:20px;
-    width:60%;
+    width:40%;
     margin:0 auto;
     padding:15px;
 }
 
-
 #modal-submit p {
-    position: absolute
+    position: absolute;
+    font-size: 20px;
 }
 
 #modal h1 {
