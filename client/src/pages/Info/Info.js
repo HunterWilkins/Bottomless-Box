@@ -11,7 +11,7 @@ class Info extends Component {
             localStorage.setItem("firstTime", true);
         }
     }
-
+    
     render(){
         return(
            <div id = "info-page-content">
@@ -49,17 +49,17 @@ class Info extends Component {
                     If you wish to delete a single item, click (or tap) on the item and hit the 
                     trash icon at the bottom left of the popup. 
                 </p>
-
-                <h2>What the $ button does</h2>
+                <h2>PREPARE TO BUY EDITION: Shopping List Mode</h2>
                 <p className = "info-desc">
-                    This handy button takes all the items in the current pocket and calculates the total value
-                    of the pocket. You can calculate the total value of all of your items by going into the "All"
-                    pocket (the one with the treasure chest image) and activating the button.
-
-                    <br /><br />
-                    This feature has potential outside of its current functionality, and might be expanded upon
-                    in the future.
-
+                    Those who might've used this app before will notice a new "shopping cart" icon.
+                    This button toggles "shopping list mode," where you can plan out exactly what you need and how much you need it.
+                    The Bottomless Box was originally created as an inventory management system, but I have almost
+                    exclusively been using it as an electronic shopping list. So, rather than keep it as it is or change it entirely,
+                    I added the shopping list mode. 
+                    <br/>
+                    You can click the shopping cart icon in the "Create Item" or "Edit Item" popup to switch it from the
+                    shopping list to your inventory. However, any item that you've depleted (aka - set the quantity to 0) will 
+                    automatically be transferred to the shopping list. 
                 </p>
                 <hr />
                 <h2>How does this app store data?</h2>
