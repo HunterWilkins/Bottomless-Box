@@ -127,6 +127,11 @@
     right:0;
 }
 
+#pocketbook-close {
+    right:0;
+    left:initial;
+}
+
 #modal-trash {
     left:0;
 }
