@@ -157,8 +157,8 @@ class Home extends Component {
         if (!repeat) {
             let newItem = {
                 name: this.state.itemName,
-                value: this.state.itemVal,
-                quantity: this.state.itemQty,
+                value: parseFloat(this.state.itemVal).toFixed(2),
+                quantity: parseInt(this.state.itemQty),
                 type: this.state.invScreen,
                 id: this.inventory.length,
                 shopping: this.state.shopping
@@ -225,8 +225,8 @@ class Home extends Component {
         this.inventory.forEach(item => {
             if (item.id === id){
                 item.name = this.state.itemName;
-                item.value = this.state.itemVal;
-                item.quantity = this.state.itemQty;
+                item.value = parseFloat(this.state.itemVal).toFixed(2);
+                item.quantity = parseInt(this.state.itemQty);
                 item.shopping = this.state.shopping;
             }
         });
