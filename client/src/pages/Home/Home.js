@@ -41,9 +41,9 @@ class Home extends Component {
             item.id = newId;
             newId++;
 
-            if (item.quantity === 0) {
-                item.shopping = true;
-            }
+            // if (item.quantity === 0) {
+            //     item.shopping = true;
+            // }
         });
         // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
 
@@ -100,9 +100,6 @@ class Home extends Component {
                 modalType: "inventory"
             });
         }
-
-        console.log(this.state.shopping);
-        console.log(this.state.shoppingList);
     }
 
     addQty = () => { // Adds 1 to the quantity value of the selected item
@@ -163,9 +160,7 @@ class Home extends Component {
                 id: this.inventory.length,
                 shopping: this.state.shopping
             }
-            
-            console.log(newItem);
-            
+                        
             this.inventory.push(newItem);
             this.updateStorage();
         }
