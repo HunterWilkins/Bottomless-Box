@@ -58,8 +58,7 @@ class Info extends Component {
                     I added the shopping list mode. 
                     <br />
                     You can click the shopping cart icon in the "Create Item" or "Edit Item" popup to switch it from the
-                    shopping list to your inventory. However, any item that you've depleted (aka - set the quantity to 0) will 
-                    automatically be transferred to the shopping list. 
+                    shopping list to your inventory.
                 </p>
                 <hr />
                 <h2>How does this app store data?</h2>
