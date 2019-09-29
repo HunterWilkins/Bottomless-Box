@@ -55,25 +55,23 @@ function Modal(props) {
                 </div>        
 
                 <input onChange = {props.handleInputChange} name = "itemVal" id = "modal-value" type = "number" placeholder = {props.itemVal} ></input>
+
                 <div id = "qty-editors-div">
-                <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "number" placeholder = {props.itemQty} ></input>
-                <div id = "qty-buttons">
-                    <div className = "qty-editor modal-button" id = "addition-btn" onClick = {() => {props.addQty()}}>
-                    <p>
-                        +
-                    </p>
-                    </div>
-                    
-                    <div className = "qty-editor modal-button" onClick = {() => {props.subQty()}}>
-                    <p>
-                        -
-                    </p>
+                    <input onChange = {props.handleInputChange} name = "itemQty" id = "modal-qty" type = "number" placeholder = {props.itemQty} ></input>
+                    <div id = "qty-buttons">
+                        <div className = "qty-editor modal-button" id = "addition-btn" onClick = {() => {props.addQty()}}>
+                        <p>
+                            +
+                        </p>
+                        </div>
+                        
+                        <div className = "qty-editor modal-button" onClick = {() => {props.subQty()}}>
+                        <p>
+                            -
+                        </p>
+                        </div>
                     </div>
                 </div>
-
-                </div>
-
-                
         
                 <div className = "modal-button" id = "modal-submit" onClick = {props.create}>
                     <p>Submit</p>
@@ -149,6 +147,33 @@ function Modal(props) {
                 </div>
             </div>
             
+        )
+    }
+
+    else if (props.type === "magna carta") {
+        return (
+            <div id = "backdrop" style = {{display: props.modal ? "block" : "none"}}>
+
+                
+            <div id = "modal" val = {props.itemId}>
+            <p className = "modal-title">~ Sales Tax ~</p>
+
+                <input onChange = {props.handleInputChange}  name = "tax" id = "modal-name" type = "number" placeholder = {props.tax ? `${props.tax}%` : `0.00%`}></input>
+                {/* <button className = "qty-editor" onClick = {() => {props.addQty()}}>+</button>
+                <button className = "qty-editor" onClick = {() => {props.subQty()}}>-</button> */}    
+                
+                <div id = "modal-submit-tax" className = "modal-button" onClick = {() => {props.updateTax()}}>                    
+                    <p>Submit</p>
+                </div>
+
+                <div className = "modal-close modal-button" onClick = {() => {props.toggleModal("inventory", null)}}>
+                    <p>
+                    X
+                    </p>
+                </div>
+                
+            </div>
+            </div>
         )
     }
 

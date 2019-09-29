@@ -23,7 +23,7 @@ class Home extends Component {
         shopping: false,
         shoppingList: false,
         // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=
-
+        tax: parseFloat(JSON.parse(localStorage.getItem("tax"))),
         total: "",
         invScreen: "All", // Which pocket is the user in?
         localInventory: JSON.parse(localStorage.getItem("inventory"))
@@ -46,7 +46,7 @@ class Home extends Component {
             // }
         });
         // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/
-
+        localStorage.setItem("tax", JSON.stringify(this.state.tax));
         localStorage.setItem("inventory", JSON.stringify(this.inventory));
         localStorage.setItem("pockets", JSON.stringify(this.pockets));
     }
@@ -63,6 +63,13 @@ class Home extends Component {
         if (localPockets) {
             localPockets.forEach(item => {
                 this.pockets.push(item);
+            });
+        }
+
+        let localTax = JSON.parse(localStorage.getItem("tax"));
+        if (localTax) {
+            this.setState({
+                tax: parseFloat(localTax)
             });
         }
 
@@ -98,6 +105,12 @@ class Home extends Component {
         else if (type === "inventory") { // "New Item" Modal
             this.setState({
                 modalType: "inventory"
+            });
+        }
+
+        else if (type === "magna carta") { // "Tax" Modal
+            this.setState({
+                modalType: "magna carta"
             });
         }
     }
@@ -231,6 +244,11 @@ class Home extends Component {
         this.updateStorage();
     };
 
+    updateTax = () => {
+        localStorage.setItem("tax", this.state.tax);
+        this.toggleModal();
+    }
+
     delete = () => { // "Item" Modal type Trash Icon functionality
         this.inventory.forEach(item => {
             if (item.id === this.state.itemId) {
@@ -273,7 +291,11 @@ class Home extends Component {
                     toggleShopping = {this.toggleShopping}
                     toggleShoppingList = {this.toggleShoppingList}
 
+                    tax = {this.state.tax}
+
                     makePocket = {this.makePocket}
+
+                    updateTax = {this.updateTax}
 
                     type = {this.state.modalType}
                 />                
@@ -307,6 +329,7 @@ class Home extends Component {
                         deletePocket = {this.deletePocket}
                         calcTotal = {this.calcTotal}
                         theme = {this.state.theme}
+                        tax = {this.state.tax}
 
                         total = {this.state.total}
                         localInventory = {this.state.localInventory}

@@ -19,6 +19,7 @@ a {
 }
 
 #inv-total {
+    cursor: pointer;
     width: 50%;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -31,4 +32,6 @@ a {
     padding: 10px;
     background: rgb(22, 14, 17);
     border-bottom-left-radius: 20px;
+    border-bottom: rgb(103, 73, 64) solid 2px;
+    border-left: rgb(103, 73, 64) solid 2px;
 }

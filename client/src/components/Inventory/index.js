@@ -6,6 +6,8 @@ import {Link} from "react-router-dom";
 function Inventory(props) {
     let filteredInv;
 
+    
+
     let isActive = {}
 
     if (props.shoppingList) {
@@ -42,10 +44,15 @@ function Inventory(props) {
         total = parseFloat(total.toFixed(2));
     }
 
+    let taxAmount = (props.tax/100).toFixed(2) * total;
+
     return(
     <div id = "inventory">
         <h3 id = "inv-title">{props.invScreen}</h3>
-        <p id = "inv-total">${total}</p>
+        <p id = "inv-total" onClick = {() => {props.toggleModal("magna carta")}}> 
+        <span className = "half-opacity">$</span>
+        {total.toFixed(2)} 
+        {props.tax ? ` → ${(total + taxAmount).toFixed(2)}` : "" }</p>
     
         <Item toggleModal = {props.toggleModal} type = "legend" name = "Name" value = "$" qty = "#" total = "Total"/>
         <div id = "items">

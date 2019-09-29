@@ -60,6 +60,15 @@ class Info extends Component {
                     You can click the shopping cart icon in the "Create Item" or "Edit Item" popup to switch it from the
                     shopping list to your inventory.
                 </p>
+
+                <h2>PREPARE TO BUY EDITION: Sales Tax</h2>
+                <p className = "info-desc">
+                    Now, you can set a sales tax percentage to more accurately determine your shopping costs!
+                    Simply click (or tap) on where the total pocket cost is (the dark, rounded rectangle at the top right of the inventory),
+                    and you'll be taken to a modal where you can add the percentage (in decimal) of your city's sales tax.
+                    The total cost of the current pocket with tax included will appear to the right of the ~ in the 
+                    total cost area.
+                </p>
                 <hr />
                 <h2>How does this app store data?</h2>
                 <p className = "info-desc">

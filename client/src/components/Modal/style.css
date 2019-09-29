@@ -76,7 +76,7 @@
     color:rgb(253, 214, 198);
 }
 
-#modal-value {
+#modal-value, #modal-name {
     width:100%;
 }
 
@@ -93,20 +93,23 @@
     height: 50px;
 }
 
-#modal-submit{
+#modal-submit, #modal-submit-tax{
     transform: translateX(-50%);
     right: 0px;
     bottom: 0;
     height: 50px;
     position: absolute;
     width:40%;
-    margin:0 auto;
     padding:15px;
 }
 
 #modal-submit p {
     position: absolute;
     font-size: 20px;
+}
+
+#modal-submit-tax {
+    width: 50%;
 }
 
 #modal h1 {
