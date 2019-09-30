@@ -17,7 +17,7 @@ The Bottomless Box was originally created as an inventory management system. How
 
 To switch from your inventory to the shopping list, simply press the shopping cart icon in the inventory button menu (to the right of the inventory).
 
-As of September 29, 2019, I've implemented sales tax into the total value calculations. In order to set your city's sales tax, you only need to click (or tap) on the dark, rounded total field in the top right of the inventory box. The number to the right of the tilde (~) will be the total value of the current pocket plus the sales tax.
+As of September 29, 2019, I've implemented sales tax into the total value calculations. In order to set your city's sales tax, you only need to click (or tap) on the dark, rounded total field in the top right of the inventory box. The number to the right of the arrow (→) will be the total value of the current pocket plus the sales tax.
 
 You can click the shopping cart icon in the "Create Item" or "Edit Item" popup to switch the item from a shopping list item to an inventory item. However, any item that you've depleted (aka - set the quantity to 0) will automatically be transferred to the shopping list.
 

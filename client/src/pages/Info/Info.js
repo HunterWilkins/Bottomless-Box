@@ -66,7 +66,7 @@ class Info extends Component {
                     Now, you can set a sales tax percentage to more accurately determine your shopping costs!
                     Simply click (or tap) on where the total pocket cost is (the dark, rounded rectangle at the top right of the inventory),
                     and you'll be taken to a modal where you can add the percentage (in decimal) of your city's sales tax.
-                    The total cost of the current pocket with tax included will appear to the right of the ~ in the 
+                    The total cost of the current pocket with tax included will appear to the right of the → in the 
                     total cost area.
                 </p>
                 <hr />
