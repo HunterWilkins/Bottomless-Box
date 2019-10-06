@@ -98,7 +98,7 @@ function Modal(props) {
 
                 
             <div id = "modal" val = {props.itemId}>
-            <p className = "modal-title">~ New Item ~</p>
+            <p className = "modal-title">New {props.pocket} Item</p>
 
                 <input onChange = {props.handleInputChange}  name = "itemName" id = "modal-name" type = "text" placeholder = "Item Name"></input>
                 <input onChange = {props.handleInputChange}  name = "itemVal" id = "modal-value" type = "number" placeholder = "Price ($)" ></input>

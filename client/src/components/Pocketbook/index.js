@@ -21,7 +21,8 @@ function Pocketbook(props) {
                         name = {item}
                         toggleInv = {props.toggleInv}
                         activeStyle = {styles}
-                        invScreen = {props.invScreen}
+                        pocket = {props.pocket}
+                        style = {props.pocket === item ? styles : {}}
                         />
                     )
                 })

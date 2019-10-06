@@ -34,6 +34,7 @@ function Pocket(props) {
 
     else {
         return (
+            
             <div className = "pocket" style = {styles} onClick = {() => {props.toggleInv(props.name)}}>
             </div>
         );

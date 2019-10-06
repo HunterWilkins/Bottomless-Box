@@ -19,20 +19,20 @@ function Inventory(props) {
 
     let total;
 
-    if (props.invScreen === "All" && props.shoppingList !== true) {
+    if (props.pocket === "All" && props.shoppingList !== true) {
         filteredInv = props.inventory.filter(item => !item.shopping);
     }
 
-    else if (props.invScreen === "All" && props.shoppingList) {
+    else if (props.pocket === "All" && props.shoppingList) {
         filteredInv = props.inventory.filter(item => item.shopping === true);
     }
 
     else if (props.shoppingList === true) {
-        filteredInv = props.inventory.filter(item => item.shopping === true && item.type === props.invScreen);
+        filteredInv = props.inventory.filter(item => item.shopping === true && item.type === props.pocket);
     }
 
     else {
-        filteredInv = props.inventory.filter(item => item.type === props.invScreen && !item.shopping);
+        filteredInv = props.inventory.filter(item => item.type === props.pocket && !item.shopping);
     }
 
     calcTotal();
@@ -48,7 +48,7 @@ function Inventory(props) {
 
     return(
     <div id = "inventory">
-        <h3 id = "inv-title">{props.invScreen}</h3>
+        <h3 id = "inv-title">{props.pocket}</h3>
         <p id = "inv-total" onClick = {() => {props.toggleModal("magna carta")}}> 
         <span className = "half-opacity">$</span>
         {total.toFixed(2)} 
@@ -77,7 +77,7 @@ function Inventory(props) {
 
         
         <div id = "inv-buttons">
-            <div id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.invScreen !== "All" ? "inline-block" : "none"}}>
+            <div id = "add-btn" className = "symbol-btn"  onClick = {() => {props.toggleModal("inventory", filteredInv)}} style = {{display: props.pocket !== "All" ? "inline-block" : "none"}}>
                 <p>+</p>
             </div>
 

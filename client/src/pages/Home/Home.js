@@ -25,7 +25,7 @@ class Home extends Component {
         // =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=
         tax: parseFloat(JSON.parse(localStorage.getItem("tax"))),
         total: "",
-        invScreen: "All", // Which pocket is the user in?
+        pocket: "All", // Which pocket is the user in?
         localInventory: JSON.parse(localStorage.getItem("inventory"))
     }
 
@@ -82,35 +82,17 @@ class Home extends Component {
     }
 
     toggleModal = (type, infoObject, pocket ) => { // Toggles the display for the Modal based on which button was activated
-        this.setState({modal:!this.state.modal});
+        this.setState({
+            modal:!this.state.modal,
+            modalType: type
+        });
 
-        if (type === "pocket"){ // "Create Pocket" Modal
-            this.setState(
-                {
-                    modalType:"pocket"
-                }
-            );
-        }
-
-        else if (type === "item") { // "Update Item" Modal
+        if (type === "item") { // "Update Item" Modal
             this.setState({
                 itemName: infoObject.name,
                 itemVal: infoObject.value,
                 itemQty: infoObject.quantity,
                 itemId: infoObject.id,
-                modalType:"item"
-            });
-        }
-
-        else if (type === "inventory") { // "New Item" Modal
-            this.setState({
-                modalType: "inventory"
-            });
-        }
-
-        else if (type === "magna carta") { // "Tax" Modal
-            this.setState({
-                modalType: "magna carta"
             });
         }
     }
@@ -141,7 +123,7 @@ class Home extends Component {
 
     toggleInv = (pocketName) => { // Toggles the inventory component to reflect the current pocket
         this.setState({
-            invScreen: pocketName
+            pocket: pocketName
         });
         
     }
@@ -169,7 +151,7 @@ class Home extends Component {
                 name: this.state.itemName,
                 value: parseFloat(this.state.itemVal).toFixed(2),
                 quantity: parseInt(this.state.itemQty),
-                type: this.state.invScreen,
+                type: this.state.pocket,
                 id: this.inventory.length,
                 shopping: this.state.shopping
             }
@@ -182,7 +164,7 @@ class Home extends Component {
             this.update(this.state.itemId);
         }
 
-        this.filteredInv = this.inventory.filter(item => item.type === this.state.invScreen);
+        this.filteredInv = this.inventory.filter(item => item.type === this.state.pocket);
         this.setState({
             itemName: "",
             itemVal: "",
@@ -204,7 +186,7 @@ class Home extends Component {
 
     deletePocket = () => { // Sidebar Trash Icon functionality
         
-        if (this.state.invScreen === "All") { // Wipe inventory and pocket information after confirmation
+        if (this.state.pocket === "All") { // Wipe inventory and pocket information after confirmation
             let confirmation = window.confirm("Are you sure that you want to delete all of your items?");
             if (confirmation) {
                 this.inventory = [];
@@ -216,18 +198,18 @@ class Home extends Component {
             let newArray = [];
             for (var i = 0; i < this.inventory.length; i++) {
                 let item = this.inventory[i];
-                if (item.type !== this.state.invScreen) {
+                if (item.type !== this.state.pocket) {
                     newArray.push(item);
                 }
             };
             this.inventory = newArray;
 
-            this.pockets.splice((this.pockets.indexOf(this.state.invScreen)), 1); // Delete relevant pocket
+            this.pockets.splice((this.pockets.indexOf(this.state.pocket)), 1); // Delete relevant pocket
         }
 
         this.updateStorage();
         this.setState({
-            invScreen: "All"
+            pocket: "All"
         });
     }
 
@@ -286,6 +268,8 @@ class Home extends Component {
                     addQty = {this.addQty}
                     subQty = {this.subQty}
 
+                    pocket = {this.state.pocket}
+
                     shopping = {this.state.shopping}
                     shoppingList = {this.state.shoppingList}
                     toggleShopping = {this.toggleShopping}
@@ -317,14 +301,14 @@ class Home extends Component {
                     pockets = {this.pockets} 
                     toggleModal = {this.toggleModal}
                     toggleInv = {this.toggleInv}
-                    invScreen = {this.state.invScreen}
+                    pocket = {this.state.pocket}
                     colorSchemes = {this.colorSchemes}
                     />
                     
                     <Inventory 
                         colorSchemes = {this.colorSchemes}
                         inventory = {this.inventory} 
-                        invScreen = {this.state.invScreen} 
+                        pocket = {this.state.pocket} 
                         toggleModal = {this.toggleModal}
                         deletePocket = {this.deletePocket}
                         calcTotal = {this.calcTotal}
